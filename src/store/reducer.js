@@ -12,7 +12,7 @@ export const getUsers = (state={},action)=> (action.type === C.GET_USERS) ?
 
 // A Reducer for getting all the question
 export const getQuestions=(state={},action)=>(action.type === C.GET_QUESTIONS) ?
-	[{...action.payload}] :
+	{...action.payload} :
 	state;
 
 // Combining all the reducers using combineReducers

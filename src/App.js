@@ -4,8 +4,11 @@ import logo from './logo.svg';
 import './App.css';
 import storeFactory from "./store/storeFactory";
 import {getQuestions,getUsers} from "./store/action";
+import  actionCreatorTestCase  from "./store/action.test.js";
 
 const store =storeFactory({});
+const testcase = actionCreatorTestCase(store);
+
 window.store=store;
 store.dispatch(
     getUsers()
@@ -13,7 +16,7 @@ store.dispatch(
 store.dispatch(
     getQuestions()
 );
-const saveState= ()=>{
+const saveState = ()=>{
   window.localStorage["app-store"] = JSON.stringify(store.getState());
   console.log(store.getState())
 };
