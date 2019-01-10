@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
+//import C from "./constants";
 import logo from './logo.svg';
 import './App.css';
+import storeFactory from "./store/storeFactory";
+import {getQuestions,getUsers} from "./store/action";
+
+const store =storeFactory({});
+window.store=store;
+store.dispatch(
+    getUsers()
+);
+store.dispatch(
+    getQuestions()
+);
+const saveState= ()=>{
+  window.localStorage["app-store"] = JSON.stringify(store.getState());
+  console.log(store.getState())
+};
+store.subscribe(saveState);
 
 class App extends Component {
   render() {
