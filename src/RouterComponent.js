@@ -5,22 +5,19 @@ import {
 	Link,
 	Route
 } from "react-router-dom";
-import {LoginPage} from "./components/LoginPage";
-class Routes extends Component{
+import App from './App';
+import LoginPage from "./components/LoginPage/LoginPage";
+class RouterComponent extends Component{
   render(){
   	return(
   		<div>
 		    <HashRouter>
 			    <Switch>
-				    <Routes  exact path = "/" render={()=>(
-				    	<div>
-					    <LoginPage/>
-					    </div>
-				    )}/>
+				    <Route path = "/" render={LoginPage}/>
 			    </Switch>
 		    </HashRouter>
 	    </div>
     );
   }
 }
-export default Routes
+export default RouterComponent;
