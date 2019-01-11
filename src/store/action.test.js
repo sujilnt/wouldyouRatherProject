@@ -121,7 +121,7 @@ let questions = {
 };
 
 const  actionCreatorTestCase = (store)=>{
-	//  test Case for getUSerAction Creator
+	//  test Case for getUSer Action Creator
     store.dispatch(
     	getUsers()
     );
@@ -142,4 +142,11 @@ const  actionCreatorTestCase = (store)=>{
 	`);
 
 };
-export  default actionCreatorTestCase;
+export default actionCreatorTestCase;
+
+
+/*
+used for testing of Action Creator
+import  actionCreatorTestCase  from "./store/action.test.js";
+const testcase = actionCreatorTestCase(store);
+*/
