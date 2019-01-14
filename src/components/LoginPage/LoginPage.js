@@ -1,27 +1,63 @@
 import React from "react";
-import { Dropdown } from "react-toolbox";
-const albums = [
-	{ value: 1, artist: 'Radiohead', album: 'In Rainbows', img: 'http://www.clasesdeperiodismo.com/wp-content/uploads/2012/02/radiohead-in-rainbows.png' },
-	{ value: 2, artist: 'QOTSA', album: 'Sons for the Deaf', img: 'http://static.musictoday.com/store/bands/93/product_large/MUDD6669.JPG' },
-	{ value: 3, artist: 'Kendrick Lamar', album: 'Good Kid Maad City', img: 'https://cdn.shopify.com/s/files/1/0131/9332/products/0bd4b1846ba3890f574810dbeddddf8c.500x500x1_grande.png?v=1425070323' },
-	{ value: 4, artist: 'Pixies', album: 'Doolittle', img: 'http://www.resident-music.com/image/cache/data/Emilys_Packshots/Pixies/Pixies_Doolittlke-500x500.jpg', disabled: true }
+import Select,{ components } from 'react-select';
+import Avatar from 'react-avatar';
+import "./LoginPage.css";
+const options = [
+	{ value: 'chocolate', label: 'Chocolate' ,avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Hrithik_at_Rado_launch.jpg/220px-Hrithik_at_Rado_launch.jpg'},
+	{ value: 'strawberry', label: 'Strawberry' },
+	{ value: 'vanilla', label: 'Vanilla' }
 ];
-const countries = [
-	{ value: 'EN-gb', label: 'England' },
-	{ value: 'ES-es', label: 'Spain'},
-	{ value: 'TH-th', label: 'Thailand', disabled: true },
-	{ value: 'EN-en', label: 'USA'}
-];
+const Option = props => {
+	const { innerProps, innerRef } = props;
+	return (
+		<components.Option {...props}>
+			<div className="avatarContainer" ref={innerRef} {...innerProps} >
+				<Avatar name={props.label} size="40" round={"4px"} />
+				<span style={{padding: "0 20px"}}>{props.label}</span>
+			</div>
+		</components.Option>
+	);
+};
+const SingleValue = props => {
+	const { innerProps, innerRef } = props;
+	console.log("props",props);
+	return (
+		<components.SingleValue {...props}>
+			<div className="" ref={innerRef} {...innerProps} >
+				<Avatar name={props.data.label} size="30" round={"4px"} />
+				<span style={{padding: "0px 10px"}}>{props.data.label}</span>
+			</div>
+		</components.SingleValue>
+	);
+};
+
+const ValueContainer = ({ children, ...props }) =>{
+	console.log("value",children,props);
+	return (
+		<components.ValueContainer {...props}>
+			<div>
+				{children}
+				<Avatar name={props.label} size="40" round={"4px"} />
+			</div>
+		</components.ValueContainer>
+	);
+}
 const LoginPage = ()=>(
-		<div>
+		<div className="loginPageSelectcontainer">
 		<h1>Login Component </h1>
-		<Dropdown
-			auto
-			source={countries}
-			label='Select your favorite album'
-			template={this.customItem}
-			value={this.state.albumSelected}
-		/>
+			<div className="flexContainer">
+				<div className="selectContainer">
+					<Select
+						isClearable
+						components={{Option,SingleValue}}
+						isSearchable
+						name="color"
+						options={options}
+						className="react-select-LoginPage"
+					/>
+				</div>
+			</div>
+			
 	</div>
 );
 export default LoginPage;

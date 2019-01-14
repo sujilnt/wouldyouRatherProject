@@ -1,0 +1,15 @@
+.selectContainer{
+    width: 600px;
+}
+
+.loginPageSelectcontainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.avatarContainer{
+    margin-bottom: 3px;
+    cursor: pointer;
+    margin-left: 3px;
+}
