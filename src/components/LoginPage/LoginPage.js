@@ -1,14 +1,11 @@
-import React from "react";
+import React,{Component} from "react";
 import Select,{ components } from 'react-select';
 import Avatar from 'react-avatar';
 import "./LoginPage.css";
-const options = [
-	{ value: 'chocolate', label: 'Chocolate' ,avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Hrithik_at_Rado_launch.jpg/220px-Hrithik_at_Rado_launch.jpg'},
-	{ value: 'strawberry', label: 'Strawberry' },
-	{ value: 'vanilla', label: 'Vanilla' }
-];
+
 const Option = props => {
 	const { innerProps, innerRef } = props;
+	console.log("props...",props);
 	return (
 		<components.Option {...props}>
 			<div className="avatarContainer" ref={innerRef} {...innerProps} >
@@ -20,7 +17,6 @@ const Option = props => {
 };
 const SingleValue = props => {
 	const { innerProps, innerRef } = props;
-	console.log("props",props);
 	return (
 		<components.SingleValue {...props}>
 			<div className="" ref={innerRef} {...innerProps} >
@@ -41,23 +37,42 @@ const ValueContainer = ({ children, ...props }) =>{
 			</div>
 		</components.ValueContainer>
 	);
-}
-const LoginPage = ()=>(
-		<div className="loginPageSelectcontainer">
-		<h1>Login Component </h1>
-			<div className="flexContainer">
-				<div className="selectContainer">
-					<Select
-						isClearable
-						components={{Option,SingleValue}}
-						isSearchable
-						name="color"
-						options={options}
-						className="react-select-LoginPage"
-					/>
+};
+
+class LoginPage extends Component{
+	state={};
+	convertPropItems = (items)=>{
+		const keys = Object.keys(items);
+		const newkeys= keys.map((list)=>{
+			return{
+				...items[list],
+				label: items[list].name,
+				value: items[list].id
+			}
+		});
+		return newkeys;
+	};
+	render(){
+		const {getUsers}=this.props;
+		const options=this.convertPropItems(getUsers);
+		return (
+			<div className="loginPageSelectcontainer">
+				<h1>Login Component </h1>
+				<div className="flexContainer">
+					<div className="selectContainer">
+						<Select
+							isClearable
+							components={{Option,SingleValue}}
+							isSearchable
+							name="color"
+							options={options}
+							className="react-select-LoginPage"
+						/>
+					</div>
 				</div>
-			</div>
 			
-	</div>
-);
+			</div>
+		)
+	}
+};
 export default LoginPage;

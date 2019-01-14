@@ -5,6 +5,7 @@ import RouterComponent from "./RouterComponent";
 import * as serviceWorker from './serviceWorker';
 import {getQuestions, getUsers} from "./store/action";
 import storeFactory from "./store/storeFactory";
+import data from "./data";
 import './index.css';
  // store code starts here ...
 const store =storeFactory({});
@@ -12,6 +13,8 @@ const saveState = ()=>{
 	window.localStorage["app-store"] = JSON.stringify(store.getState());
 	console.log(store.getState())
 };
+store.dispatch(getUsers());
+window.store=store;
 store.subscribe(saveState);
 
 ReactDOM.render((

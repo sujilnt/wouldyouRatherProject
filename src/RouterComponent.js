@@ -6,14 +6,18 @@ import {
 	Route
 } from "react-router-dom";
 import App from './App';
-import LoginPage from "./components/LoginPage/LoginPage";
+import LoginPage from "./components/LoginPage/LoginPageDataContainer";
 class RouterComponent extends Component{
   render(){
   	return(
   		<div>
 		    <HashRouter>
 			    <Switch>
-				    <Route path = "/" render={LoginPage}/>
+				    <Route path = "/" render={()=>(
+				    	<div>
+						    <LoginPage/>
+						 </div>
+				    )}/>
 			    </Switch>
 		    </HashRouter>
 	    </div>
