@@ -6,7 +6,8 @@ import {
 
 const stateConstants = {
 	getQuestions: "getQuestions",
-	getUsers: "getUsers"
+	getUsers: "getUsers",
+	currentUser: "currentUser"
 };
 
 /*
@@ -61,5 +62,10 @@ export const getQuestions = () => dispatch =>{
 	}));
 };
 
-
-
+// currentUser => Action Creator to get the current Login User
+export const currentUser = (data) => dispatch =>{
+	return createDispatcher(dispatch,{
+		type:C.CURRENT_USER,
+		payload: data
+	})
+};

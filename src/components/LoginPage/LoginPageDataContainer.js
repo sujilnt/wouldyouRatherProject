@@ -1,12 +1,19 @@
-import React from "react";
 import LoginPage from "./LoginPage";
 import {connect} from "react-redux";
+import {currentUser} from "../../store/action"
 const mapStateToProps = state => {
 	console.log("state",state);
 	return{
 		getUsers: state.getUsers
 	};
 };
-const LoginPageDataContainer= connect(mapStateToProps)(LoginPage);
+const mapDispatchToProps= dispatch =>({
+   getcurrentUser(userName){
+   	    dispatch(
+   	    	currentUser(userName)
+        )
+   }
+});
+const LoginPageDataContainer= connect(mapStateToProps,mapDispatchToProps)(LoginPage);
 
 export default LoginPageDataContainer;

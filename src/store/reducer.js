@@ -14,9 +14,16 @@ export const getUsers = (state={},action)=> (action.type === C.GET_USERS) ?
 export const getQuestions=(state={},action)=>(action.type === C.GET_QUESTIONS) ?
 	{...action.payload} :
 	state;
+// A Reducer for getting current User
+export const currentUser=(state={},action)=>(action.type === C.CURRENT_USER) ?
+	action.payload:
+	state;
 
 // Combining all the reducers using combineReducers
 export default combineReducers({
 	getUsers,
-	getQuestions
+	getQuestions,
+	currentUser
 });
+
+

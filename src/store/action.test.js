@@ -1,7 +1,8 @@
 import expect from "expect";
 import {
 	getUsers,
-	getQuestions
+	getQuestions,
+	currentUser
 } from "./action";
 
 let users = {
@@ -139,6 +140,14 @@ const  actionCreatorTestCase = (store)=>{
 		.toEqual(questions.length);  // question Obj at the top
 	console.log(`
 		getQuestions() Action Creator Works!!!
+	`);
+	store.dispatch(
+		currentUser("Sujil")
+	);
+	expect(store.getState().currentUser)
+		.toEqual("Sujil");
+	console.log(`
+		currentUser() Action Creator Works!!!
 	`);
 
 };
