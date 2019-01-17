@@ -13,3 +13,20 @@
     cursor: pointer;
     margin-left: 3px;
 }
+/*
+need to be removed its a hack
+ui  a.item{
+    width: 50%;
+}
+.QuestionTabontainer{
+    flex: 0 50%;
+}
+
+*/
+
+.ui  a.item{
+    width: 50%;
+}
+.QuestionTabontainer{
+    flex: 0 50%;
+}

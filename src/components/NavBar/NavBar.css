@@ -38,3 +38,11 @@ a{
 .navLinkSelected{
     color:orangered !important;
 }
+
+/** a.ctive.item is hack need to removed
+*/
+a.active.item{
+    background: #344be0 !important;
+    color: white !important;
+    font-weight: 800 !important;
+}
