@@ -1,0 +1,23 @@
+.card{
+    border: 6px solid black;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+}
+.flexContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 5% 0;
+}
+.center{
+    text-align: center;
+}
+
+.unvisible{
+    opacity: 0;
+}
+.fullHeight{
+    height: 100%;
+}

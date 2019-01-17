@@ -2,9 +2,8 @@ import LoginPage from "./LoginPage";
 import {connect} from "react-redux";
 import {currentUser} from "../../store/action"
 const mapStateToProps = state => {
-	console.log("state",state);
 	return{
-		getUsers: state.getUsers
+		...state
 	};
 };
 const mapDispatchToProps= dispatch =>({
