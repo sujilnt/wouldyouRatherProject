@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import LoginPage from "./components/LoginPage/LoginPageDataContainer";
 import HomePageContainer from "./components/HomePage/HomePageContainer";
+import PageEror from "./components/PageError/PageError";
 
 class RouterComponent extends Component{
   render(){
@@ -20,6 +21,10 @@ class RouterComponent extends Component{
 				    )}/>
 				    <Route exact path="/home" render={()=>(
 					    <div><HomePageContainer/></div>
+				    )}
+				    />
+				    <Route path={"/*"} render={()=>(
+					    <div><PageEror/></div>
 				    )}
 				    />
 			    </Switch>

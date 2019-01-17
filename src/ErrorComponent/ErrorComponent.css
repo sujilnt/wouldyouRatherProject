@@ -3,6 +3,7 @@
     padding: 20px;
     width: 400px;
     border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px #836d6d;
 }
 .flexContainer{
     display: flex;

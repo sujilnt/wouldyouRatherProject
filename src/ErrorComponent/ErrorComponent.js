@@ -1,42 +1,46 @@
 import React,{Component} from "react";
 import {Redirect} from "react-router-dom";
-import "./LoginError.css"
-const RenderRedirect = (props)=>{
+import "./ErrorComponent.css"
+const RenderRedirect = (url)=>{
 	return(
 		<div>
 			<Redirect
 				exact
-				to={props.url}
+				to={url}
 			/>
 		</div>
-		);
+	);
 };
 
-class LoginErrorComponent extends Component{
+class ErrorComponent extends Component{
 	state={
 		wait: true
 	};
+	
 	componentDidMount() {
+		const {timer} =this.props;
 		setTimeout(()=>{
 			this.setState(()=>({
 				wait:false
 			}));
-		},3000)
+		},timer)
 	}
 	
 	render(){
+		const {message,url}=this.props;
 		return(
 			<div className="flexContainer">
 				<div className="card">
-					<div className="center">Need to  be logged in  inorder to access this webpage.</div>
+					<div className="center">{message}</div>
 					<div className="center">Redirecting.....</div>
 					<span className="unvisible">{
 						this.state.wait=== false ?
-							RenderRedirect(this.props):
+							RenderRedirect(url):
 							""
 					}</span>
 				</div></div>
 		);
 	}
 }
-export default LoginErrorComponent;
+export default ErrorComponent;
+

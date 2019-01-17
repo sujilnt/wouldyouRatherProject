@@ -1,6 +1,6 @@
 import React from "react";
 import {NavBarComponent} from "../NavBar/NavBarContainer"
-import LoginErrorComponent from "../LoginError/LoginErrorComponent";
+import LoginError from "../LoginError/LoginError";
 const HomePage= (props)=>{
 	console.log("inside home",props.currentUser,props);
 	return(
@@ -8,7 +8,7 @@ const HomePage= (props)=>{
 			{
 				props.currentUser.name ?
 				<NavBarComponent currentUser={props.currentUser}  /> :
-				<div className="fullHeight"><LoginErrorComponent url={"/"}/></div>
+				<div className="fullHeight"><LoginError url={"/"}/></div>
 				
 			}
 		</div>
