@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React,{PureComponent} from "react";
 import {
 	HashRouter,
 	Switch,
@@ -6,26 +6,18 @@ import {
 } from "react-router-dom";
 import LoginPage from "./components/LoginPage/LoginPageDataContainer";
 import HomePageContainer from "./components/HomePage/HomePageContainer";
-import PageEror from "./components/PageError/PageError";
+import PageError from './components/PageError/PageError';
 
-class RouterComponent extends Component{
+class RouterComponent extends PureComponent{
   render(){
   	return(
   		<div>
 		    <HashRouter>
 			    <Switch>
-				    <Route exact path = "/" render={()=>(
-				    	<div>
-						    <LoginPage/>
-						 </div>
-				    )}/>
-				    <Route exact path="/home" render={()=>(
-					    <div><HomePageContainer/></div>
-				    )}
+				    <Route exact path = "/" component={LoginPage}/>
+				    <Route exact path="/home" component={HomePageContainer}
 				    />
-				    <Route path={"/*"} render={()=>(
-					    <div><PageEror/></div>
-				    )}
+				    <Route path={"/*"} component={PageError}
 				    />
 			    </Switch>
 		    </HashRouter>
