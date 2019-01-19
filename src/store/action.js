@@ -44,8 +44,8 @@ export const getUsers=() => dispatch =>{
 			payload:JSON.parse(localStorage["app-store"])
 		}) :
 		_getUsers().then((data) => createDispatcher(dispatch,{
-	   type:C.GET_USERS,
-	   payload:data
+			type:C.GET_USERS,
+			payload:data
    }));
 };
 
@@ -63,9 +63,9 @@ export const getQuestions = () => dispatch =>{
 };
 
 // currentUser => Action Creator to get the current Login User
-export const currentUser = (data) => dispatch =>{
-	return createDispatcher(dispatch,{
+export const currentUser = (data) =>{
+	return {
 		type:C.CURRENT_USER,
 		payload: data
-	})
+	};
 };
