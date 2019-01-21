@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import RouterComponent from "./RouterComponent";
 import * as serviceWorker from './serviceWorker';
-import {getUsers} from "./store/action";
+import {getQuestions, getUsers} from "./store/action";
 import storeFactory from "./store/storeFactory";
 import './index.css';
 
@@ -14,6 +14,7 @@ const saveState = ()=>{
 	console.log(store.getState())
 };
 store.dispatch(getUsers());
+
 window.store=store;
 
 store.subscribe(saveState);

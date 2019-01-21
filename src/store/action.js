@@ -38,11 +38,6 @@ const localStorageState = (dispatch,type, action)=>{
 
 // get User => Action Creator for to get all the user Information
 export const getUsers=() => dispatch =>{
-	localStorage["app-store"] ?
-		localStorageState(dispatch,stateConstants.getUsers,{
-			type:C.GET_USERS,
-			payload:JSON.parse(localStorage["app-store"])
-		}) :
 		_getUsers().then((data) => createDispatcher(dispatch,{
 			type:C.GET_USERS,
 			payload:data
@@ -50,16 +45,12 @@ export const getUsers=() => dispatch =>{
 };
 
 // get Questions => Action Creator for to get all  Questions
-export const getQuestions = () => dispatch =>{
-	localStorage["app-store"] ?
-		localStorageState(dispatch,stateConstants.getQuestions,{
-			type:C.GET_QUESTIONS,
-			payload:JSON.parse(localStorage["app-store"])
-		}) :
-	_getQuestions().then((data) => createDispatcher(dispatch,{
+export const getQuestions =  () => async dispatch =>{
+	await _getQuestions().then(  (data) =>  createDispatcher(dispatch,{
 		type:C.GET_QUESTIONS,
 		payload: data
 	}));
+	
 };
 
 // currentUser => Action Creator to get the current Login User
