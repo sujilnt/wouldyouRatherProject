@@ -4,12 +4,6 @@ import {
 	_getQuestions
 } from "../data";
 
-const stateConstants = {
-	getQuestions: "getQuestions",
-	getUsers: "getUsers",
-	currentUser: "currentUser"
-};
-
 /*
 *  createDispatcher =>
 *  A helper redux thunk function , that basically takes dispatcher and object .

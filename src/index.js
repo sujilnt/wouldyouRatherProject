@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import RouterComponent from "./RouterComponent";
 import * as serviceWorker from './serviceWorker';
-import {getQuestions, getUsers} from "./store/action";
+import {getUsers} from "./store/action";
 import storeFactory from "./store/storeFactory";
 import './index.css';
 

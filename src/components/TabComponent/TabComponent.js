@@ -9,6 +9,13 @@ const panes = [
 	{ menuItem: 'Unanswered Questions', render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane> },
 ];
 
-const TabComponent = () => <Tab menu={{ pointing: false,attached:true}} panes={panes} />
+const TabComponent = (props) =>{
+	console.log("props......",props);
+	return (
+		<div>
+			<Tab menu={{ pointing: false,attached:true}} panes={panes} />
+		</div>
+	)
+};
 
 export default TabComponent;

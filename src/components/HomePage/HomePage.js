@@ -1,7 +1,8 @@
 import React from "react";
 import {NavBarComponent} from "../NavBar/NavBarContainer"
 import LoginError from "../LoginError/LoginError";
-import QuestionTabs from "../QuestionTabs/QuestionTabs";
+import QuestionTabContainer from "../QuestionTabs/QuestionTabContainer";
+
 const HomePage= (props)=>{
 	console.log("inside home",props.currentUser,props);
 	return(
@@ -10,7 +11,7 @@ const HomePage= (props)=>{
 				props.currentUser.name ?
 					<div>
 						<NavBarComponent currentUser={props.currentUser}  />
-						<div className="flexContainer">< QuestionTabs /></div>
+						<div className="flexContainer">< QuestionTabContainer {...props}/></div>
 					</div>:
 				<div className="fullHeight"><LoginError url={"/"}/></div>
 				

@@ -1,3 +1,4 @@
+/*
 import React,{PureComponent} from "react";
 import {connect} from "react-redux";
 import TabComponent from "../TabComponent/TabComponent";
@@ -13,16 +14,26 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = dispatch =>{
 	console.log("called --Dispatcher");
 	return {
-		getQuestions: ()=> {
-			dispatch(getQuestions());
-		}
+		getQuestions: ()=> getQuestions()
 	};
 };
 class QuestionTabComponent extends PureComponent {
+	state={
+		currentProps: {}
+	};
+	componentDidMount() {
+		const {currentUser, getQuestions,dispatch} = this.props;
+		console.log("getQuestions",getQuestions);
+		
+		
+		this.setState(()=>({
+			 currentUser,
+			getQuestions
+		}));
+	}
+	
 	render(){
-		const {getQuestions} =this.props;
-		const questionData = getQuestions();
-		console.log("props",questionData);
+		console.log(this.state, "fffff");
 		return(
 			<div className="QuestionTabontainer">
 				<TabComponent
@@ -32,5 +43,7 @@ class QuestionTabComponent extends PureComponent {
 		);
 	}
 };
-const QuestionTabs = connect(mapStateToProps,mapDispatchToProps)(QuestionTabComponent);
+const QuestionTabs = connect(mapStateToProps)(QuestionTabComponent);
 export default QuestionTabs;
+
+*/
