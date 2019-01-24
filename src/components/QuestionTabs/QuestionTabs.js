@@ -1,7 +1,7 @@
 /*
 import React,{PureComponent} from "react";
 import {connect} from "react-redux";
-import TabComponent from "../TabComponent/TabComponent";
+import QuestionTabComponent from "../QuestionTabComponent/QuestionTabComponent";
 import {getQuestions} from "../../store/action";
 
 const mapStateToProps = (state)=>{
@@ -36,7 +36,7 @@ class QuestionTabComponent extends PureComponent {
 		console.log(this.state, "fffff");
 		return(
 			<div className="QuestionTabontainer">
-				<TabComponent
+				<QuestionTabComponent
 					questionData={getQuestions}
 				/>
 			</div>
