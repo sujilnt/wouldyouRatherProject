@@ -11,7 +11,11 @@ const listOFQuestions = (array, currentUser) => {
 	const listOFQuestions = [];
 	array.forEach((row, index) => {
 		listOFQuestions.push(
-			<QuestionCard QuestionData={row} key={index} currentUser={currentUser}/>
+			<QuestionCard
+				QuestionData={row}
+				key={index}
+				currentUser={currentUser}
+			/>
 		);
 	});
 	return listOFQuestions;
@@ -64,8 +68,8 @@ const panesData = (getQuestions, user) => {
 	const answeredQuestions = [];
 	const unansweredQuestions = [];
 	getQuestions.forEach((row) => {
-		const votesOption1 = checkVotes(row.optionOne, user);
-		const votesOption2 = checkVotes(row.optionTwo, user);
+		const votesOption1 = checkVotes(row.optionOne, user); // store a positive value or -1
+		const votesOption2 = checkVotes(row.optionTwo, user); // store a positive value or -1
 		return (votesOption2 >= 0 || votesOption1 >= 0) ?
 			answeredQuestions.push(row) :
 			unansweredQuestions.push(row);
@@ -81,12 +85,14 @@ const panesData = (getQuestions, user) => {
 */
 const QuestionTabComponent = (props) => {
 	const {getQuestions, currentUser} = props;
-	if ( getQuestions.length ) { // If Question are present in the state
+	if ( getQuestions.length ) {
 		const getPanesData = panesData(getQuestions, currentUser);
 		const panes = renderTabPane(getPanesData, currentUser);
 		return (
 			<div>
-				<Tab menu={{pointing: false, attached: true}} panes={panes}/>
+				<Tab menu={{pointing: false, attached: true}}
+				     panes={panes}
+				/>
 			</div>
 		)
 	} else {

@@ -3,6 +3,14 @@ import {
 	NavLink ,
 } from "react-router-dom";
 import "./NavBar.css";
+
+/*
+  <NavBar />
+        - A stateful Component that is used render The navbar .
+        renderNavChild =>{
+             A function that returns list of <span> tags with a NavLink inside it .
+        }
+    */
 class NavBar extends Component{
 	state={};
 	renderNavChild=(ChildrenArr,className)=>{

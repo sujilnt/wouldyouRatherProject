@@ -1,6 +1,18 @@
 import React,{Component} from "react";
 import {Redirect} from "react-router-dom";
-import "./ErrorComponent.css"
+import "./ErrorComponent.css";
+/*
+	<ErrorComponent />
+		- A stateful Component that is used to display Error Messages.
+	RenderRedirect => {
+		- A function that returns the React route Redirect tag which is imported from react-router.
+		  If any error Occurs its redirected to url provided by the parent Component .
+	}
+	props -
+	  time - wait time ,
+	  url - path to redirect .
+*/
+
 const RenderRedirect = (url)=>{
 	return(
 		<div>
@@ -19,6 +31,11 @@ class ErrorComponent extends Component{
 	
 	componentDidMount() {
 		const {timer} =this.props;
+		/*
+			setTimeOut => {
+			  change the after some minutes , minutes
+			}
+		*/
 		setTimeout(()=>{
 			this.setState(()=>({
 				wait:false

@@ -4,6 +4,16 @@ import RadioGroup from "../components/RadioGroup/RadioGroup";
 import {Card} from 'semantic-ui-react';
 import src from "../images/white-image.png";
 
+/*
+	<QuestionCard/>
+        - A component Card Component that displays :-
+             - UsersImage ,
+             - And the Questions with 2 Options
+          <Card />
+            - A semantic Ui Component that is used to items in display card.
+         <RadioGroup/>
+            - Custom Stateful Component that is  list of Button.
+*/
 class QuestionCard extends Component {
 	render() {
 		const {QuestionData} = this.props;

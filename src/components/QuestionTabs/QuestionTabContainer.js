@@ -30,7 +30,6 @@ class QuestionTabContainer extends PureComponent{
 	
 	render() {
     	const {currentUser,getQuestions}=this.props;
-    	console.log("QuestionTab container rendered",typeof(this.props.getQuestions));
     	return (
     		<div className="QuestionTabontainer">
 		    {

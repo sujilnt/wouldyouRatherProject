@@ -1,5 +1,11 @@
 import React from "react";
 import ErrorComponent from "../../ErrorComponent/ErrorComponent";
+/*
+	<PageError/>
+        - A stateless Component that is used when an user mistypes the url then ,
+         he will be redirected to "homePage".
+         
+*/
 const PageError = ()=>{
 	return(
 		<div>
