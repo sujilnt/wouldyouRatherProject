@@ -1,0 +1,35 @@
+.QuestionCardImage {
+    position: relative;
+}
+
+.QuestionsContent {
+    position: relative;
+}
+
+.questionContainer {
+    display: inline-flex !important;
+    justify-content: space-between;
+    width: 100% !important;
+    padding: 20px;
+    border-radius: 2px;
+    z-index: 1;
+    box-shadow: 0 0 4px #d2cbcb;
+    margin-bottom: 16px;
+}
+
+.QuestionsContent {
+    width: 72%;
+}
+
+.QuestionCardImage {
+    width: 25%;
+}
+
+.semanticCard {
+    display: block;
+}
+
+.QuestionsContent {
+
+}
+
