@@ -29,7 +29,7 @@ class QuestionTabContainer extends PureComponent{
     }
 	
 	render() {
-    	const {currentUser,getQuestions}=this.props;
+		const {currentUser, getQuestions, dispatch} = this.props;
     	return (
     		<div className="QuestionTabontainer">
 		    {
@@ -39,6 +39,7 @@ class QuestionTabContainer extends PureComponent{
 				        <QuestionTabComponent
 					        getQuestions={Object.values(getQuestions)}
 					        currentUser={currentUser}
+					        dispatch={dispatch}
 				        />
 				        </div>
 			        :

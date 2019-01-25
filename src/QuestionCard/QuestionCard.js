@@ -16,7 +16,7 @@ import src from "../images/white-image.png";
 */
 class QuestionCard extends Component {
 	render() {
-		const {QuestionData} = this.props;
+		const {QuestionData, currentUser} = this.props;
 		return (
 			<div className="questionContainer">
 				<div className="QuestionCardImage">
@@ -27,7 +27,7 @@ class QuestionCard extends Component {
 					/>
 				</div>
 				<div className="QuestionsContent">
-					<RadioGroup QuestionsData={QuestionData}/>
+					<RadioGroup QuestionsData={QuestionData} currentUser={currentUser}/>
 				</div>
 			</div>
 		)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {StrictMode} from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import RouterComponent from "./RouterComponent";
@@ -20,9 +20,11 @@ window.store=store;
 store.subscribe(saveState);
 
 ReactDOM.render((
-	<Provider store={store}>
-		<RouterComponent/>
-	</Provider>)
+		<StrictMode>
+			<Provider store={store}>
+				<RouterComponent/>
+			</Provider>
+		</StrictMode>)
 	,
 	document.getElementById('root')
 );

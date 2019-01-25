@@ -7,14 +7,15 @@ listOfQuestion () =>{
 	   return array
 }
 */
-const listOFQuestions = (array, currentUser) => {
+const listOFQuestions = (array, currentUser, dispatch) => {
 	const listOFQuestions = [];
-	array.forEach((row, index) => {
+	array.forEach((row) => {
 		listOFQuestions.push(
 			<QuestionCard
 				QuestionData={row}
-				key={index}
+				key={row.id}
 				currentUser={currentUser}
+				dispatch={dispatch}
 			/>
 		);
 	});
@@ -27,9 +28,9 @@ renderTabPane() =>{
 *   unanswered Tab - data of unanswered question
 *  }
 * */
-const renderTabPane = (panesData, currentUser) => {
-	const answered = listOFQuestions(panesData.answeredQuestions, currentUser);
-	const unanswered = listOFQuestions(panesData.unansweredQuestions, currentUser);
+const renderTabPane = (panesData, currentUser, dispatch) => {
+	const answered = listOFQuestions(panesData.answeredQuestions, currentUser, dispatch);
+	const unanswered = listOFQuestions(panesData.unansweredQuestions, currentUser, dispatch);
 	console.log("panes Data", panesData);
 	return [
 		{
@@ -45,16 +46,6 @@ const renderTabPane = (panesData, currentUser) => {
 	];
 };
 /*
-checkVotes () =>{
-       A function to check the user has answered this particular
-      question by parsing the votes array.
-  }
- */
-
-const checkVotes = (option, user) => {
-	return option.votes.indexOf(user.id);
-};
-/*
 panesData = ()=>{
       A function that getQuestion and users as input  from props and then
          returns object with keys {
@@ -65,18 +56,14 @@ panesData = ()=>{
 */
 
 const panesData = (getQuestions, user) => {
-	const answeredQuestions = [];
-	const unansweredQuestions = [];
-	getQuestions.forEach((row) => {
-		const votesOption1 = checkVotes(row.optionOne, user); // store a positive value or -1
-		const votesOption2 = checkVotes(row.optionTwo, user); // store a positive value or -1
-		return (votesOption2 >= 0 || votesOption1 >= 0) ?
-			answeredQuestions.push(row) :
-			unansweredQuestions.push(row);
-	});
+	const answeredQuestionKeys = Object.keys(user.answers);
+	const getQuestionsKeys = Object.values(getQuestions);
+	const unansweredQuestions = getQuestionsKeys.filter((e) => answeredQuestionKeys.indexOf(e.id) === -1);
+	const answeredQuestion = getQuestionsKeys.filter((e) => answeredQuestionKeys.indexOf(e.id) !== -1);
+	
 	return {
-		answeredQuestions,
-		unansweredQuestions
+		answeredQuestions: answeredQuestion,
+		unansweredQuestions: unansweredQuestions
 	};
 };
 /*
@@ -84,10 +71,10 @@ const panesData = (getQuestions, user) => {
 *  passing QuestionCard component inside Tab Pane .
 */
 const QuestionTabComponent = (props) => {
-	const {getQuestions, currentUser} = props;
+	const {getQuestions, currentUser, dispatch} = props;
 	if ( getQuestions.length ) {
 		const getPanesData = panesData(getQuestions, currentUser);
-		const panes = renderTabPane(getPanesData, currentUser);
+		const panes = renderTabPane(getPanesData, currentUser, dispatch);
 		return (
 			<div>
 				<Tab menu={{pointing: false, attached: true}}
