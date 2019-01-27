@@ -3,6 +3,7 @@ import Container from "./components/Container/Container";
 
 class App extends Component {
   render() {
+    console.log('%c APP ', 'background: #222; color: #bada55');
     return (
       <div className="App">
         <Container/>

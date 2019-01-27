@@ -1,10 +1,9 @@
-import React, {StrictMode} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
-import RouterComponent from "./RouterComponent";
 import * as serviceWorker from './serviceWorker';
-import {getUsers} from "./store/action";
 import storeFactory from "./store/storeFactory";
+import RouteContainer from "./RouteContainer";
 import './index.css';
 
  // store code starts here ...
@@ -13,18 +12,14 @@ const saveState = ()=>{
 	window.localStorage["app-store"] = JSON.stringify(store.getState());
 	console.log(store.getState())
 };
-store.dispatch(getUsers());
-
 window.store=store;
 
 store.subscribe(saveState);
 
 ReactDOM.render((
-		<StrictMode>
 			<Provider store={store}>
-				<RouterComponent/>
-			</Provider>
-		</StrictMode>)
+				<RouteContainer/>
+			</Provider>)
 	,
 	document.getElementById('root')
 );

@@ -1,7 +1,5 @@
 import React,{PureComponent} from "react";
 import QuestionTabComponent from "../QuestionTabComponent/QuestionTabComponent";
-import {getQuestions} from "../../store/action";
-
 /*
 	<QuestionTabComponent />
 		- A stateful  child component that render tabs with Questions that is
@@ -18,16 +16,6 @@ import {getQuestions} from "../../store/action";
 
 */
 class QuestionTabContainer extends PureComponent{
-    state={
-    	loading: true,
-	    data:{}
-    };
-    componentDidMount() {
-	    this.props.dispatch(
-		    getQuestions()
-	    );
-    }
-	
 	render() {
 		const {currentUser, getQuestions, dispatch} = this.props;
     	return (

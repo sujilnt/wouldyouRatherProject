@@ -16,6 +16,7 @@ import src from "../images/white-image.png";
 */
 class QuestionCard extends Component {
 	render() {
+		console.log('%c QuestionCard ', 'background: #blue; color: #bada55');
 		const {QuestionData, currentUser} = this.props;
 		return (
 			<div className="questionContainer">

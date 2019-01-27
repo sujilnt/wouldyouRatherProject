@@ -31,16 +31,17 @@ const localStorageState = (dispatch,type, action)=>{
 };
 
 // get User => Action Creator for to get all the user Information
-export const getUsers=() => dispatch =>{
-		_getUsers().then((data) => createDispatcher(dispatch,{
+export const getUsers = () => async dispatch => {
+	const getUsersData = await _getUsers().then(async (data) => await dispatch({
 			type:C.GET_USERS,
 			payload:data
    }));
+	return getUsersData;
 };
 
 // get Questions => Action Creator for to get all  Questions
 export const getQuestions =  () => async dispatch =>{
-	await _getQuestions().then(  (data) =>  createDispatcher(dispatch,{
+	return _getQuestions().then((data) => dispatch({
 		type:C.GET_QUESTIONS,
 		payload: data
 	}));

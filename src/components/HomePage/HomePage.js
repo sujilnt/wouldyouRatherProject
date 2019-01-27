@@ -4,7 +4,7 @@ import LoginError from "../LoginError/LoginError";
 import QuestionTabContainer from "../QuestionTabs/QuestionTabContainer";
 
 const HomePage= (props)=>{
-	console.log("inside home",props.currentUser,props);
+	console.log('%c HomePage ', 'background: red; color: #bada55');
 	return(
 		<div>
 			{
