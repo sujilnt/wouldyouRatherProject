@@ -31,7 +31,6 @@ renderTabPane() =>{
 const renderTabPane = (panesData, currentUser, dispatch) => {
 	const answered = listOFQuestions(panesData.answeredQuestions, currentUser, dispatch);
 	const unanswered = listOFQuestions(panesData.unansweredQuestions, currentUser, dispatch);
-	console.log("panes Data", panesData);
 	return [
 		{
 			menuItem: 'Answered Questions', key: "answered", render: () => <Tab.Pane attached={false}>
@@ -71,8 +70,8 @@ const panesData = (getQuestions, user) => {
 *  passing QuestionCard component inside Tab Pane .
 */
 const QuestionTabComponent = (props) => {
+	//console.log('%c QuestionTabComponent ', 'background: steelblue ; color: white');
 	const {getQuestions, currentUser, dispatch} = props;
-	console.log(props, "Question tab ");
 	if ( getQuestions.length ) {
 		const getPanesData = panesData(getQuestions, currentUser);
 		const panes = renderTabPane(getPanesData, currentUser, dispatch);

@@ -17,12 +17,15 @@ class NavBar extends Component{
 		let renderNavChildArr=[];
 		ChildrenArr.forEach((value,i)=>{
 			renderNavChildArr.push(
-				<span className={className} key={className+i}><NavLink exact to={value.link} activeClassName="navLinkSelected">{value.name}</NavLink></span>
+				<span className={className} key={className + i}>
+					<NavLink exact to={value.link} activeClassName="navLinkSelected">{value.name}</NavLink>
+				</span>
 			);
 		});
 		return renderNavChildArr;
 	};
 	render(){
+		//console.log('%c NavBar ', 'background: tomato ; color: white');
 		return(
 			<div className="navcontainer">
 				<section className="section">Would You Rather</section>

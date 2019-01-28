@@ -57,15 +57,16 @@ export const currentUser = (data) =>{
 	};
 };
 
-export const saveQuestionsAnswer = (authuser, id, value) => (dispatch) => {
+export const saveQuestionsAnswer = (authUser, id, value) => (dispatch) => {
 	const args = {
-		authedUser: authuser.id,
+		authedUser: authUser.id,
 		qid: id.id,
 		answer: value
 	};
-	return dispatch({
-		type: C.SAVE_QUESTION_ANSWER,
-		payload: _saveQuestionAnswer(args)
+	_saveQuestionAnswer(args).then(async () => {
+		const data = await dispatch(getUsers());
+		const id = data.payload[ args.authedUser ];
+		dispatch(currentUser(id));
 	});
 };
 

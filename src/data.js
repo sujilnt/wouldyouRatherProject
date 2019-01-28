@@ -173,12 +173,12 @@ export function _saveQuestion (question) {
 }
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
-	console.log({authedUser, qid, answer}, "data.js");
 	return new Promise((res, rej) => {
 		setTimeout(() => {
 			
 			users = {
 				...users,
+				label: users.name,
 				[authedUser]: {
 					...users[authedUser],
 					answers: {
@@ -198,8 +198,7 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
 					}
 				}
 			};
-			
-			res()
+			res({users})
 		}, 500)
 	})
 }

@@ -1,32 +1,43 @@
 import React, {Component} from "react";
 import {Form, Checkbox} from 'semantic-ui-react';
-import C from "../../constants";
 import {saveQuestionsAnswer} from "../../store/action";
-const getDefaultvalue = (currentUser, QuestionsData) => {
-	const option = currentUser.answers[ QuestionsData.id ];
-	return QuestionsData[ option ] ? QuestionsData[ option ].text : "default";
-};
 
 class RadioGroup extends Component {
 	state = {
-		value: "value"
+		defaultValue: ""
 	};
 	handleChange = (e, {value}) => {
 		const {QuestionsData, dispatch, currentUser} = this.props;
-		
-		dispatch(
-			saveQuestionsAnswer(currentUser, QuestionsData, value)
-		);
-		console.log(value, this.props);
+		console.log("called");
+		dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
 	};
-	check = (StateValue, defaultValue, text) => {
-		const stateValue = StateValue === "value" ? defaultValue : StateValue;
-		return stateValue === text;
-	};
+	
+	componentDidMount() {
+		const {currentUser, QuestionsData} = this.props;
+		const id = QuestionsData.id;
+		const propVal = currentUser.answers[ QuestionsData.id ];
+		this.setState(() => {
+			return {
+				defaultValue: propVal
+			}
+		});
+	}
+	
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		const {currentUser, QuestionsData} = this.props;
+		const id = QuestionsData.id;
+		const propVal = currentUser.answers[ QuestionsData.id ];
+		if ( prevProps.currentUser.answers[ id ] !== currentUser.answers[ QuestionsData.id ] ) {
+			this.setState(() => {
+				return {
+					defaultValue: propVal
+				}
+			});
+		}
+	}
+	
 	render() {
-		const {QuestionsData, currentUser} = this.props;
-		const defaultValue = getDefaultvalue(currentUser, QuestionsData);
-		console.log("questionData...", QuestionsData, currentUser, defaultValue, currentUser.answers[ QuestionsData.id ]);
+		const {QuestionsData} = this.props;
 		return (
 			<div>
 				<Form>
@@ -39,7 +50,7 @@ class RadioGroup extends Component {
 							label={QuestionsData.optionOne.text}
 							name='checkboxRadioGroup'
 							value={"optionOne"}
-							checked={this.check(this.state.value, defaultValue, QuestionsData.optionOne.text)}
+							checked={this.state.defaultValue === "optionOne"}
 							onChange={this.handleChange}
 						/>
 					</Form.Field>
@@ -48,7 +59,7 @@ class RadioGroup extends Component {
 							radio
 							label={QuestionsData.optionTwo.text}
 							name='checkboxRadioGroup'
-							checked={this.check(this.state.value, defaultValue, QuestionsData.optionTwo.text)}
+							checked={this.state.defaultValue === "optionTwo"}
 							value={"optionTwo"}
 							onChange={this.handleChange}
 						/>

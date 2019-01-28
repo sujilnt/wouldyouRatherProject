@@ -10,7 +10,7 @@ import PageError from './components/PageError/PageError';
 
 class RouterComponent extends Component {
 	render() {
-		console.log('%c RouterComponent ', 'background: #222; color: #bada55');
+		//console.log('%c RouterComponent ', 'background: #222; color: #bada55');
   	return(
   		<div>
 		    <HashRouter>

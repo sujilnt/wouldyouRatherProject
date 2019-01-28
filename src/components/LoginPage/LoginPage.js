@@ -1,11 +1,10 @@
-import React,{Component} from "react";
+import React, {PureComponent} from "react";
 import Select,{ components } from 'react-select';
 import Avatar from 'react-avatar';
 import "./LoginPage.css";
 import {
 	Link,
 } from "react-router-dom";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Option = props => {
 	const { innerProps, innerRef } = props;
@@ -25,21 +24,15 @@ const SingleValue = props => {
 	const { innerProps, innerRef } = props;
 	return (
 		<components.SingleValue {...props}>
-			<ReactCSSTransitionGroup
-				transitionName="carousel"
-				transitionEnterTimeout={300}
-				transitionLeaveTimeout={300}
-			>
 			<div className="" ref={innerRef} {...innerProps}  key={innerRef}>
 				<Avatar name={props.data.label} size="30" round={"4px"} />
 				<span style={{padding: "0px 10px"}}>{props.data.label}</span>
 			</div>
-			</ReactCSSTransitionGroup>
 		</components.SingleValue>
 	);
 };
 
-class LoginPage extends Component{
+class LoginPage extends PureComponent {
 	state={};
 	convertPropItems = (items)=>{
 		const keys = Object.keys(items);
@@ -56,6 +49,7 @@ class LoginPage extends Component{
 		this.props.getcurrentUser(e);
 	};
 	render(){
+		//console.log('%c LoginPage ', 'background: green ; color: #bada55');
 		const {getUsers}=this.props;
 		const options=this.convertPropItems(getUsers);
 		return (
@@ -63,12 +57,6 @@ class LoginPage extends Component{
 				<h1>Login Component </h1>
 				<div className="flexContainer">
 					<div className="selectContainer">
-						<ReactCSSTransitionGroup
-							transitionName="fade"
-							transitionAppear={true}
-							transitionAppearTimeout={50}
-							transitionEnter={false}
-							transitionLeave={false}>
 						<div key="transition-group-content" >
 						<Select
 							isClearable
@@ -80,7 +68,6 @@ class LoginPage extends Component{
 							onChange={this.handleChange}
 						/>
 						</div>
-						</ReactCSSTransitionGroup>
 					</div>
 				</div>
 			

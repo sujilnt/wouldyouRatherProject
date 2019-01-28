@@ -14,9 +14,15 @@ import src from "../images/white-image.png";
          <RadioGroup/>
             - Custom Stateful Component that is  list of Button.
 */
+
 class QuestionCard extends Component {
+	
+	getDefaultvalue = (currentUser, QuestionsData) => {
+		const option = currentUser.answers[ QuestionsData.id ];
+		return option ? option : "default";
+	};
 	render() {
-		console.log('%c QuestionCard ', 'background: #blue; color: #bada55');
+		//console.log('%c QuestionCard ', 'background: blue; color: white');
 		const {QuestionData, currentUser, dispatch} = this.props;
 		return (
 			<div className="questionContainer">
@@ -28,7 +34,11 @@ class QuestionCard extends Component {
 					/>
 				</div>
 				<div className="QuestionsContent">
-					<RadioGroup QuestionsData={QuestionData} currentUser={currentUser} dispatch={dispatch}/>
+					<RadioGroup QuestionsData={QuestionData}
+					            currentUser={currentUser}
+					            dispatch={dispatch}
+					            getDefaultvalue={this.getDefaultvalue}
+					/>
 				</div>
 			</div>
 		)

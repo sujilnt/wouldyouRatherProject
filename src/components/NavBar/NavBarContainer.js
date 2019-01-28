@@ -30,7 +30,7 @@ export const NavBarComponent =(props)=>{
 	];
 	const navBarRightSideData= [
 		{
-		name: props.currentUser.label ,
+			name: props.currentUser.name,
 		link: "#"
 		},
 		{
@@ -45,3 +45,4 @@ export const NavBarComponent =(props)=>{
     />
    );
 };
+

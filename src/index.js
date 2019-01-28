@@ -10,11 +10,11 @@ import './index.css';
 const store =storeFactory({});
 const saveState = ()=>{
 	window.localStorage["app-store"] = JSON.stringify(store.getState());
-	console.log(store.getState())
+	console.log('%c Store Data ', 'background: #222; color: white', store.getState());
 };
 window.store=store;
 
-store.subscribe(saveState);
+//store.subscribe(saveState);
 
 ReactDOM.render((
 			<Provider store={store}>
