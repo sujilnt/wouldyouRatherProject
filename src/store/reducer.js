@@ -19,10 +19,21 @@ export const currentUser=(state={},action)=>(action.type === C.CURRENT_USER) ?
 	action.payload:
 	state;
 
+export const saveQuestionAndAnswer = (state = {}, action) => (action.type === C.SAVE_QUESTION_ANSWER) ?
+	action.payload :
+	state;
+
+export const saveQuestions = (state = {}, action) => (action.type === C.SAVE_QUESTIONS) ?
+	action.payload :
+	state;
+
+
 // Combining all the reducers using combineReducers
 export default combineReducers({
 	getUsers,
 	getQuestions,
+	saveQuestionAndAnswer,
+	saveQuestions,
 	currentUser
 });
 

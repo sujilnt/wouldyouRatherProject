@@ -17,7 +17,7 @@ import src from "../images/white-image.png";
 class QuestionCard extends Component {
 	render() {
 		console.log('%c QuestionCard ', 'background: #blue; color: #bada55');
-		const {QuestionData, currentUser} = this.props;
+		const {QuestionData, currentUser, dispatch} = this.props;
 		return (
 			<div className="questionContainer">
 				<div className="QuestionCardImage">
@@ -28,7 +28,7 @@ class QuestionCard extends Component {
 					/>
 				</div>
 				<div className="QuestionsContent">
-					<RadioGroup QuestionsData={QuestionData} currentUser={currentUser}/>
+					<RadioGroup QuestionsData={QuestionData} currentUser={currentUser} dispatch={dispatch}/>
 				</div>
 			</div>
 		)

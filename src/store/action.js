@@ -1,7 +1,9 @@
 import C from "../constants";
 import {
 	_getUsers,
-	_getQuestions
+	_getQuestions,
+	_saveQuestionAnswer,
+	_saveQuestion
 } from "../data";
 
 /*
@@ -32,11 +34,10 @@ const localStorageState = (dispatch,type, action)=>{
 
 // get User => Action Creator for to get all the user Information
 export const getUsers = () => async dispatch => {
-	const getUsersData = await _getUsers().then(async (data) => await dispatch({
+	return await _getUsers().then(async (data) => await dispatch({
 			type:C.GET_USERS,
 			payload:data
    }));
-	return getUsersData;
 };
 
 // get Questions => Action Creator for to get all  Questions
@@ -54,4 +55,23 @@ export const currentUser = (data) =>{
 		type:C.CURRENT_USER,
 		payload: data
 	};
+};
+
+export const saveQuestionsAnswer = (authuser, id, value) => (dispatch) => {
+	const args = {
+		authedUser: authuser.id,
+		qid: id.id,
+		answer: value
+	};
+	return dispatch({
+		type: C.SAVE_QUESTION_ANSWER,
+		payload: _saveQuestionAnswer(args)
+	});
+};
+
+export const saveQuestions = (questions) => (dispatch) => {
+	return _saveQuestion(questions).then((data) => dispatch({
+		type: C.SAVE_QUESTIONS,
+		payload: data
+	}))
 };

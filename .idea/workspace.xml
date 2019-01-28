@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3695a0bc-432a-4801-b305-9a3f470053ed" name="Default Changelist" comment="refactor: Add some state changes  &#10; added all getusers and getQuestions&#10; 1) Added Console.logs for better understanding of rendering  : &#10;      - QuestionTabContainer &#10;      - QuestionTabComponent&#10;      - PageError.js&#10;      - NavBarContainer.js&#10;      - NavBar &#10;      - Error Component&#10;      - QuestionCard">
-      <change afterPath="$PROJECT_DIR$/src/RouteContainer.js" afterDir="false" />
+    <list default="true" id="3695a0bc-432a-4801-b305-9a3f470053ed" name="Default Changelist" comment="refactor: improvised working condition of states&#10;feature: working of radio button when an option is selected .   &#10; &#10; bugs to be fixed : -&#10; when checked in radio the radio button is checked correctly .">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuestionCard/QuestionCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuestionCard/QuestionCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RouterComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/RouterComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/QuestionTabComponent/QuestionTabComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuestionTabComponent/QuestionTabComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RadioGroup/RadioGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RadioGroup/RadioGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,49 +24,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RouterComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="12" column="79" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="79" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/HomePage/HomePage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/HomePage/HomePageContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+            <state relative-caret-position="234">
+              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPageDataContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -77,8 +49,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
               <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
-                <element signature="e#1#37#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#41#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/store/action.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="226">
+              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -97,24 +88,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/QuestionTabComponent/QuestionTabComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="71">
+              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="25" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuestionCard/QuestionCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="31" />
+            <state relative-caret-position="286">
+              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -135,10 +114,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/RadioGroup/RadioGroup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="468">
+              <caret line="51" column="47" lean-forward="true" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="123" column="26" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
+              <folding>
+                <element signature="e#41#370#0" />
+                <element signature="e#388#646#0" />
+                <element signature="e#658#942#0" />
+                <element signature="e#1015#1264#0" />
+                <element signature="e#1291#1526#0" />
+                <element signature="e#1385#1435#0" />
+                <element signature="e#1555#1770#0" />
+                <element signature="e#1798#2037#0" />
+                <element signature="e#2065#2319#0" />
               </folding>
             </state>
           </provider>
@@ -167,6 +166,8 @@
       <find>localStorage</find>
       <find>localStorageState</find>
       <find>state</find>
+      <find>handleChange</find>
+      <find>votes</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,13 +188,9 @@
         <option value="$PROJECT_DIR$/src/routes.js" />
         <option value="$PROJECT_DIR$/src/.babelrc" />
         <option value="$PROJECT_DIR$/src/components/DataContainer/LoginPageDataContainer.js" />
-        <option value="$PROJECT_DIR$/src/data.js" />
-        <option value="$PROJECT_DIR$/src/constants.js" />
-        <option value="$PROJECT_DIR$/src/store/reducer.js" />
         <option value="$PROJECT_DIR$/src/store/action.test.js" />
         <option value="$PROJECT_DIR$/src/components/HomePage/HomepageContainer.js" />
         <option value="$PROJECT_DIR$/src/components/HomePage/HomePageContainer.js" />
-        <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPageDataContainer.js" />
         <option value="$PROJECT_DIR$/src/components/LoginError/LoginError.css" />
         <option value="$PROJECT_DIR$/src/ErrorComponent/ErrorComponent.css" />
         <option value="$PROJECT_DIR$/src/components/LoginError/LoginErrorComponent.js" />
@@ -210,15 +207,19 @@
         <option value="$PROJECT_DIR$/src/components/NavBar/NavBarContainer.js" />
         <option value="$PROJECT_DIR$/src/components/NavBar/NavBar.js" />
         <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPage.js" />
-        <option value="$PROJECT_DIR$/src/components/RadioGroup/RadioGroup.js" />
-        <option value="$PROJECT_DIR$/src/components/QuestionTabComponent/QuestionTabComponent.js" />
         <option value="$PROJECT_DIR$/src/RouteContainer.js" />
         <option value="$PROJECT_DIR$/src/RouterComponent.js" />
         <option value="$PROJECT_DIR$/src/components/HomePage/HomePage.js" />
-        <option value="$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabContainer.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/constants.js" />
+        <option value="$PROJECT_DIR$/src/store/reducer.js" />
+        <option value="$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPageDataContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/QuestionTabComponent/QuestionTabComponent.js" />
         <option value="$PROJECT_DIR$/src/QuestionCard/QuestionCard.js" />
+        <option value="$PROJECT_DIR$/src/data.js" />
+        <option value="$PROJECT_DIR$/src/components/RadioGroup/RadioGroup.js" />
         <option value="$PROJECT_DIR$/src/store/action.js" />
       </list>
     </option>
@@ -227,10 +228,10 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-132" />
-    <option name="y" value="148" />
-    <option name="width" value="1940" />
-    <option name="height" value="1056" />
+    <option name="x" value="-88" />
+    <option name="y" value="99" />
+    <option name="width" value="1293" />
+    <option name="height" value="704" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -260,20 +261,13 @@
               <item name="wouldyouratherproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="HomePage" type="462c0819:PsiDirectoryNode" />
+              <item name="RadioGroup" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wouldyouratherproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="wouldyouratherproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="QuestionTabs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wouldyouratherproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wouldyouratherproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="QuestionCard" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -351,17 +345,24 @@
       <option name="project" value="LOCAL" />
       <updated>1548340051042</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor: Add some state changes  &#10; added all getusers and getQuestions&#10; 1) Added Console.logs for better understanding of rendering  : &#10;      - QuestionTabContainer &#10;      - QuestionTabComponent&#10;      - PageError.js&#10;      - NavBarContainer.js&#10;      - NavBar &#10;      - Error Component&#10;      - QuestionCard">
+      <created>1548624714078</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1548624714079</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216969000" />
+    <option name="totallyTimeSpent" value="230627000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23052464" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15279241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -374,9 +375,9 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3303411" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.32854578" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50103307" side_tool="true" weight="0.32854578" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3293348" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" sideWeight="0.49896693" visible="true" weight="0.1995638" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -410,7 +411,8 @@
     <MESSAGE value="refactor: Add some Comments   &#10; Adding some comments  for ease of Readablity  and avoid Confunsions. &#10; 1) Added Comments : &#10;      - QuestionTabContainer &#10;      - QuestionTabComponent&#10;      &#10; 2) Renaming of the Component from TabComponent to QuestionTabComponent" />
     <MESSAGE value="refactor: Add some Comments   &#10; Adding some comments  for ease of Readablity  and avoid Confunsions. &#10; 1) Added Comments : &#10;      - QuestionTabContainer &#10;      - QuestionTabComponent&#10;      - PageError.js&#10;      - NavBarContainer.js&#10;      - NavBar &#10;      - Error Component&#10;      - QuestionCard" />
     <MESSAGE value="refactor: Add some state changes  &#10; added all getusers and getQuestions&#10; 1) Added Console.logs for better understanding of rendering  : &#10;      - QuestionTabContainer &#10;      - QuestionTabComponent&#10;      - PageError.js&#10;      - NavBarContainer.js&#10;      - NavBar &#10;      - Error Component&#10;      - QuestionCard" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: Add some state changes  &#10; added all getusers and getQuestions&#10; 1) Added Console.logs for better understanding of rendering  : &#10;      - QuestionTabContainer &#10;      - QuestionTabComponent&#10;      - PageError.js&#10;      - NavBarContainer.js&#10;      - NavBar &#10;      - Error Component&#10;      - QuestionCard" />
+    <MESSAGE value="refactor: improvised working condition of states&#10;feature: working of radio button when an option is selected .   &#10; &#10; bugs to be fixed : -&#10; when checked in radio the radio button is checked correctly ." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: improvised working condition of states&#10;feature: working of radio button when an option is selected .   &#10; &#10; bugs to be fixed : -&#10; when checked in radio the radio button is checked correctly ." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -476,13 +478,6 @@
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -621,24 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="154" column="8" lean-forward="true" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
-          <folding>
-            <element signature="e#41#370#0" />
-            <element signature="e#388#646#0" />
-            <element signature="e#658#942#0" />
-            <element signature="e#1015#1264#0" />
-            <element signature="e#1291#1526#0" />
-            <element signature="e#1385#1435#0" />
-            <element signature="e#1555#1770#0" />
-            <element signature="e#1798#2037#0" />
-            <element signature="e#2065#2319#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuestionCard/QuestionCard.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -646,81 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QuestionTabComponent/QuestionTabComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="89" column="6" lean-forward="true" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#41#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/action.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1416">
-          <caret line="148" column="14" lean-forward="true" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-redux/es/connect/connect.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-416">
           <caret line="12" column="51" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPageDataContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RouteContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding>
-            <element signature="e#1#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/HomePage/HomePageContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/HomePage/HomePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -741,26 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -771,30 +657,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuestionCard/QuestionCard.js">
+    <entry file="file://$PROJECT_DIR$/src/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/action.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="148" column="14" lean-forward="true" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QuestionTabs/QuestionTabContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/HomePage/HomePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/HomePage/HomePageContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="31" />
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuestionCard/QuestionCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPageDataContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RouteContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QuestionTabComponent/QuestionTabComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#41#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/RadioGroup/RadioGroup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="468">
+          <caret line="51" column="47" lean-forward="true" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="123" column="26" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
+          <folding>
+            <element signature="e#41#370#0" />
+            <element signature="e#388#646#0" />
+            <element signature="e#658#942#0" />
+            <element signature="e#1015#1264#0" />
+            <element signature="e#1291#1526#0" />
+            <element signature="e#1385#1435#0" />
+            <element signature="e#1555#1770#0" />
+            <element signature="e#1798#2037#0" />
+            <element signature="e#2065#2319#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/action.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="226">
+          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>

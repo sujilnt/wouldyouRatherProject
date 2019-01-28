@@ -72,6 +72,7 @@ const panesData = (getQuestions, user) => {
 */
 const QuestionTabComponent = (props) => {
 	const {getQuestions, currentUser, dispatch} = props;
+	console.log(props, "Question tab ");
 	if ( getQuestions.length ) {
 		const getPanesData = panesData(getQuestions, currentUser);
 		const panes = renderTabPane(getPanesData, currentUser, dispatch);

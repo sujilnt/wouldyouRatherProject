@@ -18,6 +18,7 @@ import QuestionTabComponent from "../QuestionTabComponent/QuestionTabComponent";
 class QuestionTabContainer extends PureComponent{
 	render() {
 		const {currentUser, getQuestions, dispatch} = this.props;
+		console.log("container", this.props);
     	return (
     		<div className="QuestionTabontainer">
 		    {
