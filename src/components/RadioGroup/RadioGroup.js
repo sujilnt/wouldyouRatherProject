@@ -8,8 +8,10 @@ class RadioGroup extends Component {
 	};
 	handleChange = (e, {value}) => {
 		const {QuestionsData, dispatch, currentUser} = this.props;
-		console.log("called");
 		dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
+		this.setState(() => {
+			return {defaultValue: value};
+		})
 	};
 	
 	componentDidMount() {
@@ -38,13 +40,14 @@ class RadioGroup extends Component {
 	
 	render() {
 		const {QuestionsData} = this.props;
+		console.log(this.state.defaultValue === "optionOne");
 		return (
 			<div>
-				<Form>
-					<Form.Field>
-						<h3> Would you Rather </h3>
-					</Form.Field>
-					<Form.Field>
+				<section className="section">
+					<section>
+						<h3 style={{"marginBottom": "8px"}}> Would you Rather </h3>
+					</section>
+					<section className="section">
 						<Checkbox
 							radio
 							label={QuestionsData.optionOne.text}
@@ -53,8 +56,8 @@ class RadioGroup extends Component {
 							checked={this.state.defaultValue === "optionOne"}
 							onChange={this.handleChange}
 						/>
-					</Form.Field>
-					<Form.Field>
+					</section>
+					<section className="section">
 						<Checkbox
 							radio
 							label={QuestionsData.optionTwo.text}
@@ -63,8 +66,8 @@ class RadioGroup extends Component {
 							value={"optionTwo"}
 							onChange={this.handleChange}
 						/>
-					</Form.Field>
-				</Form>
+					</section>
+				</section>
 			</div>
 		)
 	}

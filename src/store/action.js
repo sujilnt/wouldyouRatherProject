@@ -33,15 +33,15 @@ const localStorageState = (dispatch,type, action)=>{
 };
 
 // get User => Action Creator for to get all the user Information
-export const getUsers = () => async dispatch => {
-	return await _getUsers().then(async (data) => await dispatch({
+export const getUsers = () => dispatch => {
+	_getUsers().then((data) => dispatch({
 			type:C.GET_USERS,
 			payload:data
    }));
 };
 
 // get Questions => Action Creator for to get all  Questions
-export const getQuestions =  () => async dispatch =>{
+export const getQuestions = () => dispatch => {
 	return _getQuestions().then((data) => dispatch({
 		type:C.GET_QUESTIONS,
 		payload: data
@@ -50,7 +50,7 @@ export const getQuestions =  () => async dispatch =>{
 };
 
 // currentUser => Action Creator to get the current Login User
-export const currentUser = (data) =>{
+export const currentUser = (data = {}) => {
 	return {
 		type:C.CURRENT_USER,
 		payload: data
@@ -63,10 +63,10 @@ export const saveQuestionsAnswer = (authUser, id, value) => (dispatch) => {
 		qid: id.id,
 		answer: value
 	};
-	_saveQuestionAnswer(args).then(async () => {
-		const data = await dispatch(getUsers());
-		const id = data.payload[ args.authedUser ];
-		dispatch(currentUser(id));
+	
+	_saveQuestionAnswer(args).then((data) => {
+		const authid = data.users[ authUser.id ];
+		dispatch(currentUser(authid));
 	});
 };
 

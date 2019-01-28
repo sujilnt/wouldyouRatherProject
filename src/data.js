@@ -178,7 +178,6 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
 			
 			users = {
 				...users,
-				label: users.name,
 				[authedUser]: {
 					...users[authedUser],
 					answers: {
