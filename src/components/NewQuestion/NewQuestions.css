@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.flexChild {
+    margin-bottom: 12px;
+    width: 100%;
+
+}
+
+.flexChild:last-child {
+    margin-top: 25px;
+}
+
+.NewQuestionContainer {
+    flex: 1 500px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.containerClass {
+    border: 1px solid #00000036;
+    box-shadow: 0px 0px 2px #80808094;
+    padding: 32px;
+    align-self: center;
+    align-items: center;
+    width: 35% !important;
+    margin-top: 50px;
+}
+
+.wrapper {
+    padding: 20px;
+}

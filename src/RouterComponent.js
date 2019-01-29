@@ -4,9 +4,12 @@ import {
 	Switch,
 	Route
 } from "react-router-dom";
+import LeaderBoard from "./components/LeaderBoard/LeaderBoard";
 import LoginPage from "./components/LoginPage/LoginPageDataContainer";
 import HomePageContainer from "./components/HomePage/HomePageContainer";
+import NewQuestion from "./components/NewQuestion/NewQuestion";
 import PageError from './components/PageError/PageError';
+import {Button, Header, Image, Modal} from 'semantic-ui-react'
 
 class RouterComponent extends Component {
 	render() {
@@ -16,9 +19,23 @@ class RouterComponent extends Component {
 		    <HashRouter>
 			    <Switch>
 				    <Route exact path = "/" component={LoginPage}/>
-				    <Route exact path="/home" component={HomePageContainer}
+				    <Route exact path="/home" component={HomePageContainer}/>
+				    <Route exact path="/NewQuestion"
+				           {...this.props}
+				           render={
+					           () => <NewQuestion {...this.props} />
+				           }
 				    />
-				    <Route path={"/*"} component={PageError}
+				    <Route exact path="/LeaderBoard"
+				           {...this.props}
+				           render={
+					           () => <LeaderBoard {...this.props} />
+				           }
+				    />
+				
+				    <Route
+					    path={"/*"}
+					    component={PageError}
 				    />
 			    </Switch>
 		    </HashRouter>
