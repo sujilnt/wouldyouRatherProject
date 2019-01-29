@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import {
 	HashRouter,
 	Switch,
@@ -11,9 +11,10 @@ import NewQuestion from "./components/NewQuestion/NewQuestion";
 import PageError from './components/PageError/PageError';
 import {Button, Header, Image, Modal} from 'semantic-ui-react'
 
-class RouterComponent extends Component {
+class RouterComponent extends PureComponent {
 	render() {
 		//console.log('%c RouterComponent ', 'background: #222; color: #bada55');
+		console.log("RouteComponent", this.props);
   	return(
   		<div>
 		    <HashRouter>

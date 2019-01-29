@@ -3,7 +3,13 @@ import {Card} from "semantic-ui-react";
 import src from "../../images/white-image.png";
 import "../../QuestionCard/QuestionCard.css";
 
-const ScoreBoard = (params) => {
+const calculateScores = (params) => {
+	return params.length;
+};
+const ScoreBoard = (props) => {
+	console.log("scoreCard", props.users.questions);
+	const answers = calculateScores(Object.keys(props.users.answers));
+	const questions = calculateScores(props.users.questions);
 	return (
 		<div className="questionContainer " style={{width: "40% !important"}}>
 			<div className="QuestionCardImage">
@@ -14,8 +20,8 @@ const ScoreBoard = (params) => {
 				/>
 			</div>
 			<div className="QuestionsContent">
-				<div>Quesition Answered : 8</div>
-				<div>Answered Questions : 2</div>
+				<div>Question Answered : {questions}</div>
+				<div>Answered Questions : {answers}</div>
 			</div>
 		</div>
 	)

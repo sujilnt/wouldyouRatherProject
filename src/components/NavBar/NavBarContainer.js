@@ -38,6 +38,7 @@ export const NavBarComponent =(props)=>{
 			link: "/"
 			
 		}];
+	console.log("data", navBarRightSideData, props);
    return(
    	<NavBar
 	    navBarRightSideData={navBarRightSideData}

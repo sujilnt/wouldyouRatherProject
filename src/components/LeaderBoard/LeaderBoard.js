@@ -3,16 +3,27 @@ import {NavBarComponent} from "../NavBar/NavBarContainer";
 import ScoreBoard from "../ScoreBoard/ScoreBoard";
 import "./LeaderBoard.css";
 
-const renderResults = () => {
-	return <h1>hello</h1>
+const renderScoreCard = (props) => {
+	const obj = props.state.getUsers;
+	const users = Object.keys(obj);
+	const renderScores = [];
+	users.forEach((data) => {
+		renderScores.push(
+			<ScoreBoard
+				users={obj[ data ]}
+			/>);
+	});
+	return renderScores
 };
 const LeaderBoard = (props) => {
 	return (
 		<div>
-			<NavBarComponent currentUser={{name: "sujil"}}/>
+			<NavBarComponent currentUser={props.state.currentUser}/>
 			<div><h2 className="headerStyle">ScoreBoard</h2></div>
 			<div className="flexContainer" style={{margin: "0"}}>
-				<div className="QuestionTabontainer leaderBoard"><ScoreBoard/></div>
+				<div className="QuestionTabontainer leaderBoard">
+					{renderScoreCard(props)}
+				</div>
 			</div>
 		</div>
 	)

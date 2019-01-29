@@ -6,7 +6,7 @@ import {Container, Header, Input, Button} from 'semantic-ui-react';
 const NewQuestion = (props) => {
 	return (
 		<div>
-			<NavBarComponent currentUser={{name: "sujil"}}/>
+			<NavBarComponent currentUser={props.state.currentUser}/>
 			<div className="wrapper">
 				<div className="NewQuestionContainer " style={{marginTop: "30px"}}>
 					<Container style={{padding: "32px"}} className="containerClass">
