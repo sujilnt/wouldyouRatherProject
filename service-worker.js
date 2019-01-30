@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/WouldYouRatherProject/precache-manifest.7354fe62dfa40c83cb837ab918ff2c20.js"
+  "/wouldyouRatherProject/precache-manifest.652c3fd335e3542dfe0ca590bb4ab7ea.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/WouldYouRatherProject/index.html", {
+workbox.routing.registerNavigationRoute("/wouldyouRatherProject/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
