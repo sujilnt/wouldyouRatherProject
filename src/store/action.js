@@ -71,8 +71,7 @@ export const saveQuestionsAnswer = (authUser, id, value) => (dispatch) => {
 };
 
 export const saveQuestions = (questions) => (dispatch) => {
-	return _saveQuestion(questions).then((data) => dispatch({
-		type: C.SAVE_QUESTIONS,
-		payload: data
-	}))
+	_saveQuestion(questions).then((data) => dispatch(
+		getQuestions()
+	));
 };
