@@ -55,6 +55,7 @@ class RadioGroup extends Component {
 							onChange={this.handleChange}
 						/>
 					</section>
+					<div className="orCss">OR</div>
 					<section className="section">
 						<Checkbox
 							radio

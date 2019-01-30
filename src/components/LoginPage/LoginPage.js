@@ -36,14 +36,14 @@ class LoginPage extends PureComponent {
 	state={};
 	convertPropItems = (items)=>{
 		const keys = Object.keys(items);
-		const newKeys= keys.map((list)=>{
+		const newKeysValue = keys.map((list) => {
 			return{
 				...items[list],
 				label: items[list].name,
 				value: items[list].id
 			}
 		});
-		return newKeys;
+		return newKeysValue;
 	};
 	handleChange=(e)=>{
 		this.props.getcurrentUser(e);
@@ -54,8 +54,9 @@ class LoginPage extends PureComponent {
 		const options=this.convertPropItems(getUsers);
 		return (
 			<div className="loginPageSelectcontainer">
-				<h1>Login Component </h1>
-				<div className="flexContainer">
+				<h3>Would You Rather ..? </h3>
+				<p>Login to Continue</p>
+				<div className="flexContainer" style={{margin: "2% 0"}}>
 					<div className="selectContainer">
 						<div key="transition-group-content" >
 						<Select
@@ -74,5 +75,5 @@ class LoginPage extends PureComponent {
 			</div>
 		)
 	}
-};
+}
 export default LoginPage;
