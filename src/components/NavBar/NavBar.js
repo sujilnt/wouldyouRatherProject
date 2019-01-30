@@ -3,7 +3,7 @@ import {
 	NavLink ,
 } from "react-router-dom";
 import "./NavBar.css";
-
+import Avatar from 'react-avatar';
 /*
   <NavBar />
         - A stateful Component that is used render The navbar .
@@ -16,9 +16,14 @@ class NavBar extends Component{
 	renderNavChild=(ChildrenArr,className)=>{
 		let renderNavChildArr=[];
 		ChildrenArr.forEach((value,i)=>{
+			console.log(value, "navbar");
 			renderNavChildArr.push(
 				<span className={className} key={className + i}>
-					<NavLink exact to={value.link} activeClassName="navLinkSelected">{value.name}</NavLink>
+					<span style={{marginRight: "5px"}}>{value.avatarURL ?
+						<Avatar size="40" round="20px" src={value.avatarURL}/> : ""}</span>
+					<NavLink exact to={value.link} activeClassName="navLinkSelected">
+						{value.name}
+					</NavLink>
 				</span>
 			);
 		});

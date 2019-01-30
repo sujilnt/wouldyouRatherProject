@@ -31,7 +31,8 @@ export const NavBarComponent =(props)=>{
 	const navBarRightSideData= [
 		{
 			name: props.currentUser.name,
-		link: "#"
+			avatarURL: props.currentUser.avatarURL,
+			link: "#"
 		},
 		{
 			name:"Log Out",
