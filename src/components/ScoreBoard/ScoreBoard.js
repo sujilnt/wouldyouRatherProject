@@ -7,7 +7,7 @@ const calculateScores = (params) => {
 	return params.length;
 };
 const ScoreBoard = (props) => {
-	console.log("scoreCard", props.users.questions);
+	console.log("scoreCard", props.users.name);
 	const answers = calculateScores(Object.keys(props.users.answers));
 	const questions = calculateScores(props.users.questions);
 	return (
@@ -20,8 +20,9 @@ const ScoreBoard = (props) => {
 				/>
 			</div>
 			<div className="QuestionsContent">
-				<div>Question Answered : {questions}</div>
-				<div>Answered Questions : {answers}</div>
+				<h3>{props.users.name}</h3>
+				<div className="fonting">Question Answered : {questions}</div>
+				<div className="fonting">Answered Questions : {answers}</div>
 			</div>
 		</div>
 	)

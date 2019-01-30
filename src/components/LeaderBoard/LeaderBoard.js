@@ -1,4 +1,5 @@
 import React from "react";
+import LoginError from "../LoginError/LoginError";
 import {NavBarComponent} from "../NavBar/NavBarContainer";
 import ScoreBoard from "../ScoreBoard/ScoreBoard";
 import "./LeaderBoard.css";
@@ -16,16 +17,21 @@ const renderScoreCard = (props) => {
 	return renderScores
 };
 const LeaderBoard = (props) => {
-	return (
-		<div>
-			<NavBarComponent currentUser={props.state.currentUser}/>
-			<div><h2 className="headerStyle">ScoreBoard</h2></div>
-			<div className="flexContainer" style={{margin: "0"}}>
-				<div className="QuestionTabontainer leaderBoard">
-					{renderScoreCard(props)}
+	const {currentUser} = props.state;
+	if ( currentUser.name ) {
+		return (
+			<div>
+				<NavBarComponent currentUser={props.state.currentUser}/>
+				<div className="flexContainer" style={{margin: "0", flexDirection: "column"}}>
+					<div><h2 className="headerStyle">ScoreBoard</h2></div>
+					<div className="QuestionTabontainer leaderBoard" style={{flexWrap: "wrap"}}>
+						{renderScoreCard(props)}
+					</div>
 				</div>
 			</div>
-		</div>
-	)
+		)
+	} else {
+		return (<div><LoginError url={"/"}/></div>);
+	}
 };
 export default LeaderBoard;
