@@ -17,7 +17,7 @@ import QuestionTabComponent from "../QuestionTabComponent/QuestionTabComponent";
 */
 class QuestionTabContainer extends PureComponent{
 	render() {
-		const {currentUser, getQuestions, dispatch} = this.props;
+		const {currentUser, getQuestions, dispatch, getUsers} = this.props;
     	return (
     		<div className="QuestionTabontainer">
 		    {
@@ -28,6 +28,7 @@ class QuestionTabContainer extends PureComponent{
 					        getQuestions={Object.values(getQuestions)}
 					        currentUser={currentUser}
 					        dispatch={dispatch}
+					        getUsers={getUsers}
 				        />
 				        </div>
 			        :

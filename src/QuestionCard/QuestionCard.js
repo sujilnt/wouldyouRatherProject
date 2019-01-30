@@ -29,7 +29,7 @@ class QuestionCard extends Component {
 				<div className="QuestionCardImage">
 					<Card
 						color='red'
-						image={src}
+						image={QuestionData.avatarURL}
 						className="semanticCard"
 					/>
 				</div>

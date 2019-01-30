@@ -15,7 +15,7 @@ const ScoreBoard = (props) => {
 			<div className="QuestionCardImage">
 				<Card
 					color='red'
-					image={src}
+					image={props.users.avatarURL}
 					className="semanticCard"
 				/>
 			</div>
@@ -23,7 +23,10 @@ const ScoreBoard = (props) => {
 				<h3>{props.users.name}</h3>
 				<div className="fonting">Question Answered : {questions}</div>
 				<div className="fonting">Answered Questions : {answers}</div>
+				<div className="fonting moveRight">total : {answers + questions}</div>
 			</div>
+			.
+			
 		</div>
 	)
 };

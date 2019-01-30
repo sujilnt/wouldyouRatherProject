@@ -33,15 +33,15 @@ const renderTabPane = (panesData, currentUser, dispatch) => {
 	const unanswered = listOFQuestions(panesData.unansweredQuestions, currentUser, dispatch);
 	return [
 		{
-			menuItem: 'Answered Questions', key: "answered", render: () => <Tab.Pane attached={false}>
-				{answered}
-			</Tab.Pane>
-		},
-		{
-			menuItem: 'Unanswered Questions', key: "answered", render: () => <Tab.Pane attached={false}>
+			menuItem: 'Unanswered Questions', key: "unanswered", render: () => <Tab.Pane attached={false}>
 				{unanswered}
 			</Tab.Pane>
 		},
+		{
+			menuItem: 'Answered Questions', key: "answered", render: () => <Tab.Pane attached={false}>
+				{answered}
+			</Tab.Pane>
+		}
 	];
 };
 /*
@@ -54,15 +54,24 @@ panesData = ()=>{
 	}
 */
 
-const panesData = (getQuestions, user) => {
+const panesData = (getQuestions, user, getUsers) => {
 	const answeredQuestionKeys = Object.keys(user.answers);
 	const getQuestionsKeys = Object.values(getQuestions);
 	const unansweredQuestions = getQuestionsKeys.filter((e) => answeredQuestionKeys.indexOf(e.id) === -1);
 	const answeredQuestion = getQuestionsKeys.filter((e) => answeredQuestionKeys.indexOf(e.id) !== -1);
+	const createQuestionObj = (data) => {
+		return {
+			...data,
+			avatarURL: getUsers[ data.author ].avatarURL
+		}
+	};
+	const answeredQuestionWithAvatar = answeredQuestion.map(createQuestionObj);
+	const unansweredQuestionsWithAvatar = unansweredQuestions.map(createQuestionObj);
+	
 	
 	return {
-		answeredQuestions: answeredQuestion,
-		unansweredQuestions: unansweredQuestions
+		answeredQuestions: answeredQuestionWithAvatar,
+		unansweredQuestions: unansweredQuestionsWithAvatar
 	};
 };
 /*
@@ -71,9 +80,9 @@ const panesData = (getQuestions, user) => {
 */
 const QuestionTabComponent = (props) => {
 	//console.log('%c QuestionTabComponent ', 'background: steelblue ; color: white');
-	const {getQuestions, currentUser, dispatch} = props;
+	const {getQuestions, currentUser, dispatch, getUsers} = props;
 	if ( getQuestions.length ) {
-		const getPanesData = panesData(getQuestions, currentUser);
+		const getPanesData = panesData(getQuestions, currentUser, getUsers);
 		const panes = renderTabPane(getPanesData, currentUser, dispatch);
 		return (
 			<div>
