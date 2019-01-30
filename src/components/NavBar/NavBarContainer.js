@@ -18,8 +18,8 @@ export const NavBarComponent =(props)=>{
 			link: "/home",
 			side:"left"
 		},{
-			name: "NewQuestion",
-			link: "/NewQuestion",
+			name: "Add Questions",
+			link: "/add",
 			side:"left"
 		},{
 			name: "LeaderBoard",

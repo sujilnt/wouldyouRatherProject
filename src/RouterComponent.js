@@ -19,7 +19,7 @@ class RouterComponent extends PureComponent {
 			    <Switch>
 				    <Route exact path = "/" component={LoginPage}/>
 				    <Route exact path="/home" component={HomePageContainer}/>
-				    <Route exact path="/NewQuestion"
+				    <Route exact path="/add"
 				           {...this.props}
 				           render={
 					           () => <NewQuestion {...this.props} />

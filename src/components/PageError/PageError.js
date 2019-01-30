@@ -10,9 +10,9 @@ const PageError = ()=>{
 	return(
 		<div>
 		 <ErrorComponent
-			 message = "404 Error Page Not Found and redirecting to Home"
+			 message = "Kindly login to access this page."
 			 timer={5000}
-			 url="/home"
+			 url="/"
 		 />
 		</div>
 	)
