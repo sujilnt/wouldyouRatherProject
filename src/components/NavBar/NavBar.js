@@ -16,12 +16,12 @@ class NavBar extends Component{
 	renderNavChild=(ChildrenArr,className)=>{
 		let renderNavChildArr=[];
 		ChildrenArr.forEach((value,i)=>{
-			console.log(value, "navbar");
+			let style = value.disabled ? "navLinkSelectedDisabled" : "navLinkSelected";
 			renderNavChildArr.push(
 				<span className={className} key={className + i}>
 					<span style={{marginRight: "5px"}}>{value.avatarURL ?
 						<Avatar size="40" round="20px" src={value.avatarURL}/> : ""}</span>
-					<NavLink exact to={value.link} activeClassName="navLinkSelected">
+					<NavLink exact to={value.link} activeClassName={style}>
 						{value.name}
 					</NavLink>
 				</span>

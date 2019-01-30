@@ -35,10 +35,13 @@ a{
     color: #83c5cd;
 }
 
-.navLinkSelected{
+.navLinkSelected, .navLinkSelectedDisabled {
     color:orangered !important;
 }
 
+.navLinkSelectedDisabled {
+    pointer-events: none;
+}
 /** a.ctive.item is hack need to removed
 */
 a.active.item{

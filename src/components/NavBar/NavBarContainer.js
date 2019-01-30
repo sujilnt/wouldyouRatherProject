@@ -32,6 +32,7 @@ export const NavBarComponent =(props)=>{
 		{
 			name: props.currentUser.name,
 			avatarURL: props.currentUser.avatarURL,
+			disabled: true,
 			link: "#"
 		},
 		{
@@ -39,7 +40,6 @@ export const NavBarComponent =(props)=>{
 			link: "/"
 			
 		}];
-	console.log("data", navBarRightSideData, props);
    return(
    	<NavBar
 	    navBarRightSideData={navBarRightSideData}

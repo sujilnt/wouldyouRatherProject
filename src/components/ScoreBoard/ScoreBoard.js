@@ -7,15 +7,15 @@ const calculateScores = (params) => {
 	return params.length;
 };
 const ScoreBoard = (props) => {
-	console.log("scoreCard", props.users.name);
 	const answers = calculateScores(Object.keys(props.users.answers));
 	const questions = calculateScores(props.users.questions);
+	let avatarImage = props.users.avatarURL ? props.users.avatarURL : src;
 	return (
 		<div className="questionContainer " style={{width: "40% !important"}}>
 			<div className="QuestionCardImage">
 				<Card
 					color='red'
-					image={props.users.avatarURL}
+					image={avatarImage}
 					className="semanticCard"
 				/>
 			</div>

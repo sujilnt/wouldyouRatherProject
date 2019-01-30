@@ -12,6 +12,7 @@ const renderScoreCard = (props) => {
 		renderScores.push(
 			<ScoreBoard
 				users={obj[ data ]}
+				key={data}
 			/>);
 	});
 	return renderScores

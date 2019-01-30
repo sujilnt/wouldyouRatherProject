@@ -9,12 +9,10 @@ import LoginPage from "./components/LoginPage/LoginPageDataContainer";
 import HomePageContainer from "./components/HomePage/HomePageContainer";
 import NewQuestion from "./components/NewQuestion/NewQuestion";
 import PageError from './components/PageError/PageError';
-import {Button, Header, Image, Modal} from 'semantic-ui-react'
 
 class RouterComponent extends PureComponent {
 	render() {
 		//console.log('%c RouterComponent ', 'background: #222; color: #bada55');
-		console.log("RouteComponent", this.props);
   	return(
   		<div>
 		    <HashRouter>

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Form, Checkbox} from 'semantic-ui-react';
+import {Checkbox} from 'semantic-ui-react';
 import {saveQuestionsAnswer} from "../../store/action";
 
 class RadioGroup extends Component {
@@ -16,7 +16,6 @@ class RadioGroup extends Component {
 	
 	componentDidMount() {
 		const {currentUser, QuestionsData} = this.props;
-		const id = QuestionsData.id;
 		const propVal = currentUser.answers[ QuestionsData.id ];
 		this.setState(() => {
 			return {
@@ -28,7 +27,7 @@ class RadioGroup extends Component {
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		const {currentUser, QuestionsData} = this.props;
 		const id = QuestionsData.id;
-		const propVal = currentUser.answers[ QuestionsData.id ];
+		const propVal = currentUser.answers[ id ];
 		if ( prevProps.currentUser.answers[ id ] !== currentUser.answers[ QuestionsData.id ] ) {
 			this.setState(() => {
 				return {
@@ -40,7 +39,6 @@ class RadioGroup extends Component {
 	
 	render() {
 		const {QuestionsData} = this.props;
-		console.log(this.state.defaultValue === "optionOne");
 		return (
 			<div>
 				<section className="section">

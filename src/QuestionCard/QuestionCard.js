@@ -24,12 +24,13 @@ class QuestionCard extends Component {
 	render() {
 		//console.log('%c QuestionCard ', 'background: blue; color: white');
 		const {QuestionData, currentUser, dispatch} = this.props;
+		const imageAvatar = QuestionData.avatarURL ? QuestionData.avatarURL : src;
 		return (
 			<div className="questionContainer">
 				<div className="QuestionCardImage">
 					<Card
 						color='red'
-						image={QuestionData.avatarURL}
+						image={imageAvatar}
 						className="semanticCard"
 					/>
 				</div>
