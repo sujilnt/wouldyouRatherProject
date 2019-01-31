@@ -13,14 +13,15 @@ class Results extends Component {
 		console.log("props", this.props, this.props.QuestionData);
 		const {currentUser, currentQuestions, getUsers} = this.props;
 		if ( currentUser.id ) {
-			const avatar = currentUser.avatarURL ? currentUser.avatar : src;
-			const header = `added by ${currentUser.name}`;
+			const checkPic = getUsers[ currentQuestions.author ].avatarURL;
+			const avatar = checkPic ? checkPic : src;
+			const header = `Added by ${currentQuestions.author}`;
 			const optionOneVotes = currentQuestions.optionOne.votes.length;
 			const optionTwoVotes = currentQuestions.optionTwo.votes.length;
 			const totalUsers = Object.keys(getUsers).length;
 			const percentOptionOne = calculatePercentage(optionOneVotes, totalUsers);
 			const percentOptionTwo = calculatePercentage(optionTwoVotes, totalUsers);
-			// const imageAvatar = QuestionData.avatarURL ? QuestionData.avatarURL : src;
+			
 			return (
 				<div className="resultContainer">
 					<NavBarComponent currentUser={currentUser}/>
