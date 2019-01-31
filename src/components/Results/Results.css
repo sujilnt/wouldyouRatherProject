@@ -1,0 +1,13 @@
+.messageContainer {
+    display: flex;
+}
+
+.overrideQuestionContainer {
+    width: 65% !important;
+    align-self: center;
+}
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+}

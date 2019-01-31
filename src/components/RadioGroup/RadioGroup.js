@@ -1,17 +1,22 @@
 import React, {Component} from "react";
-import {Checkbox} from 'semantic-ui-react';
-import {saveQuestionsAnswer} from "../../store/action";
+import {Link} from "react-router-dom";
+import {Button, Checkbox} from 'semantic-ui-react';
+import {currentQuestionAction, saveQuestionsAnswer} from "../../store/action";
 
 class RadioGroup extends Component {
 	state = {
-		defaultValue: ""
+		defaultValue: "",
+		disabled: true
 	};
+	
 	handleChange = (e, {value}) => {
 		const {QuestionsData, dispatch, currentUser} = this.props;
-		dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
 		this.setState(() => {
-			return {defaultValue: value};
-		})
+			return {
+				defaultValue: value
+			};
+		});
+		dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
 	};
 	
 	componentDidMount() {
@@ -19,7 +24,7 @@ class RadioGroup extends Component {
 		const propVal = currentUser.answers[ QuestionsData.id ];
 		this.setState(() => {
 			return {
-				defaultValue: propVal
+				defaultValue: propVal,
 			}
 		});
 	}
@@ -31,21 +36,27 @@ class RadioGroup extends Component {
 		if ( prevProps.currentUser.answers[ id ] !== currentUser.answers[ QuestionsData.id ] ) {
 			this.setState(() => {
 				return {
-					defaultValue: propVal
+					defaultValue: propVal,
+					disabled: false
 				}
 			});
 		}
 	}
 	
+	clickedElement = (e) => {
+		this.props.dispatch(currentQuestionAction(this.props.QuestionsData));
+	};
 	render() {
 		const {QuestionsData} = this.props;
+		const viewPollLink = `/question/${QuestionsData.id}/results`;
 		return (
 			<div>
 				<section className="section">
 					<section>
-						<h3 style={{"marginBottom": "8px"}}> Would you Rather </h3>
+						<h3 className="alignCenter"><span className="caps">{QuestionsData.author}</span> asks would you
+							rather....</h3>
 					</section>
-					<section className="section">
+					<section className="section h4" style={{marginTop: "10px"}}>
 						<Checkbox
 							radio
 							label={QuestionsData.optionOne.text}
@@ -55,8 +66,14 @@ class RadioGroup extends Component {
 							onChange={this.handleChange}
 						/>
 					</section>
-					<div className="orCss">OR</div>
-					<section className="section">
+					<h3 style={{
+						fontFamily: "cursive",
+						margin: 0,
+						textAlign: "center"
+					}}>
+						Or
+					</h3>
+					<section className="section h4" style={{marginTop: "10px"}}>
 						<Checkbox
 							radio
 							label={QuestionsData.optionTwo.text}
@@ -65,6 +82,14 @@ class RadioGroup extends Component {
 							value={"optionTwo"}
 							onChange={this.handleChange}
 						/>
+					</section>
+					<section className="flexContainer" style={{justifyContent: "flex-End"}}>
+						<Link to={viewPollLink}>
+							<Button color='red' className="fontWeight" onClick={this.clickedElement}
+							        disabled={this.state.disabled}>
+								Results
+							</Button>
+						</Link>
 					</section>
 				</section>
 			</div>

@@ -10,6 +10,7 @@ import LoginPage from "./components/LoginPage/LoginPageDataContainer";
 import HomePageContainer from "./components/HomePage/HomePageContainer";
 import NewQuestion from "./components/NewQuestion/NewQuestion";
 import PageError from './components/PageError/PageError';
+import Results from "./components/Results/Results";
 
 class RouterComponent extends PureComponent {
 	render() {
@@ -33,9 +34,17 @@ class RouterComponent extends PureComponent {
 				           }
 				    />
 				    <Route
+					    exact
 					    path={"/question/:id"}
 					    render={
 						    () => <AnswerQuestions {...this.props} />
+					    }
+				    />
+				    <Route
+					    exact
+					    path={"/question/:id/results"}
+					    render={
+						    () => <div><Results {...this.props}/></div>
 					    }
 				    />
 				    <Route
