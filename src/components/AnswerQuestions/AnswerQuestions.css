@@ -1,0 +1,10 @@
+.childFlexBox {
+    width: 45%;
+    align-items: center;
+    padding: 25px;
+}
+
+.parentFlexBOx {
+    display: flex;
+    justify-content: center;
+}

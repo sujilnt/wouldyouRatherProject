@@ -17,6 +17,15 @@
     margin-bottom: 16px;
 }
 
+.h4 {
+    text-align: center;
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+
+.alignCenter {
+    text-align: center;
+}
 .QuestionsContent {
     width: 72%;
 }
@@ -25,11 +34,12 @@
     width: 25%;
 }
 
+.caps {
+    text-transform: capitalize;
+}
+
 .semanticCard {
     display: block;
 }
 
-.QuestionsContent {
-
-}
 

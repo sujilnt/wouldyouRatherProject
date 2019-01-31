@@ -4,6 +4,7 @@ import {
 	Switch,
 	Route
 } from "react-router-dom";
+import AnswerQuestions from "./components/AnswerQuestions/AnswerQuestions";
 import LeaderBoard from "./components/LeaderBoard/LeaderBoard";
 import LoginPage from "./components/LoginPage/LoginPageDataContainer";
 import HomePageContainer from "./components/HomePage/HomePageContainer";
@@ -12,7 +13,7 @@ import PageError from './components/PageError/PageError';
 
 class RouterComponent extends PureComponent {
 	render() {
-		//console.log('%c RouterComponent ', 'background: #222; color: #bada55');
+		console.log('%c RouterComponent ', 'background: #222; color: #bada55', this.props);
   	return(
   		<div>
 		    <HashRouter>
@@ -31,7 +32,12 @@ class RouterComponent extends PureComponent {
 					           () => <LeaderBoard {...this.props} />
 				           }
 				    />
-				
+				    <Route
+					    path={"/question/:id"}
+					    render={
+						    () => <AnswerQuestions {...this.props} />
+					    }
+				    />
 				    <Route
 					    path={"/*"}
 					    component={PageError}

@@ -13,8 +13,8 @@ const saveState = ()=>{
 	console.log('%c Store Data ', 'background: #222; color: white', store.getState());
 };
 
-//store.subscribe(saveState);
-
+store.subscribe(saveState);
+window.store = store;
 ReactDOM.render((
 			<Provider store={store}>
 				<RouteContainer/>

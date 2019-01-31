@@ -56,6 +56,12 @@ export const currentUser = (data = {}) => {
 		payload: data
 	};
 };
+export const currentQuestionAction = (data = {}) => {
+	return {
+		type: C.SAVE_CURRENT_QUESTION,
+		payload: data
+	};
+};
 
 export const saveQuestionsAnswer = (authUser, id, value) => (dispatch) => {
 	const args = {

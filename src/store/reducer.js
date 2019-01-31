@@ -18,6 +18,10 @@ export const getQuestions=(state={},action)=>(action.type === C.GET_QUESTIONS) ?
 export const currentUser=(state={},action)=>(action.type === C.CURRENT_USER) ?
 	action.payload:
 	state;
+// A reducer to get currentQuestions
+export const currentQuestions = (state = {}, action) => (action.type === C.SAVE_CURRENT_QUESTION) ?
+	action.payload :
+	state;
 
 export const saveQuestionAndAnswer = (state = {}, action) => {
 	if ( action.type === C.SAVE_QUESTION_ANSWER ) {
@@ -38,6 +42,7 @@ export default combineReducers({
 	getQuestions,
 	saveQuestionAndAnswer,
 	saveQuestions,
+	currentQuestions,
 	currentUser
 });
 

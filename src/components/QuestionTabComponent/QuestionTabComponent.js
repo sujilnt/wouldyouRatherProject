@@ -1,6 +1,7 @@
 import React from "react";
 import  {Tab}  from 'semantic-ui-react';
 import QuestionCard from "../../QuestionCard/QuestionCard";
+import CardQuestion from "../CardQuestion/CardQuestion";
 /*
 listOfQuestion () =>{
 	A function that creates list of Questions using Question Card Component .
@@ -10,8 +11,9 @@ listOfQuestion () =>{
 const listOFQuestions = (array, currentUser, dispatch) => {
 	const listOFQuestions = [];
 	array.forEach((row) => {
+		console.log(row, currentUser, "seeeeeee");
 		listOFQuestions.push(
-			<QuestionCard
+			<CardQuestion
 				QuestionData={row}
 				key={row.id}
 				currentUser={currentUser}
@@ -67,11 +69,11 @@ const panesData = (getQuestions, user, getUsers) => {
 	};
 	const answeredQuestionWithAvatar = answeredQuestion.map(createQuestionObj);
 	const unansweredQuestionsWithAvatar = unansweredQuestions.map(createQuestionObj);
-	
+	const sortFuncDecesending = (a, b) => b.timestamp - a.timestamp;
 	
 	return {
-		answeredQuestions: answeredQuestionWithAvatar,
-		unansweredQuestions: unansweredQuestionsWithAvatar
+		answeredQuestions: answeredQuestionWithAvatar.sort(sortFuncDecesending),
+		unansweredQuestions: unansweredQuestionsWithAvatar.sort(sortFuncDecesending)
 	};
 };
 /*
