@@ -14,7 +14,7 @@ import Results from "./components/Results/Results";
 
 class RouterComponent extends PureComponent {
 	render() {
-		console.log('%c RouterComponent ', 'background: #222; color: #bada55', this.props);
+		//console.log('%c RouterComponent ', 'background: #222; color: #bada55', this.props);
   	return(
   		<div>
 		    <HashRouter>

@@ -9,9 +9,9 @@ class RadioGroup extends Component {
 		disabled: true
 	};
 	
-	handleChange = (e, {value}) => {
+	handleChange = async (e, {value}) => {
 		const {QuestionsData, dispatch, currentUser} = this.props;
-		dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
+		await dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
 		this.setState(() => {
 			return {
 				defaultValue: value
