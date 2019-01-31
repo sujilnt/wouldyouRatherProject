@@ -9,16 +9,19 @@ class CardQuestion extends Component {
 		const option = currentUser.answers[ QuestionsData.id ];
 		return option ? option : "default";
 	};
-	ClickedElement = (props) => {
-		props.dispatch(currentQuestionAction(props.QuestionData));
+	ClickedElement = () => {
+		const {dispatch, QuestionData} = this.props;
+		dispatch(currentQuestionAction(QuestionData));
 	};
 	
 	render() {
 		//console.log('%c QuestionCard ', 'background: blue; color: white');
-		const {QuestionData, currentUser, dispatch} = this.props;
+		const {QuestionData, status} = this.props;
 		console.log(this.props);
 		const imageAvatar = QuestionData.avatarURL ? QuestionData.avatarURL : src;
 		const viewPollLink = `/question/${QuestionData.id}`;
+		const resultLink = `/question/${QuestionData.id}/results`;
+		const currentLink = status === "unanswered" ? viewPollLink : resultLink;
 		return (
 			<div className="questionContainer">
 				<div className="QuestionCardImage">
@@ -46,8 +49,9 @@ class CardQuestion extends Component {
 					</div>
 				</div>
 				<div>
-					<Link to={viewPollLink}>
-						<Button color='red' className="fontWeight" onClick={(e) => this.ClickedElement(this.props)}>
+					<Link to={currentLink}>
+						<Button color='red' className="fontWeight"
+						        onClick={this.ClickedElement}>
 							View Poll
 						</Button>
 					</Link>

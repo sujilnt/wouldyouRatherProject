@@ -7,7 +7,7 @@ listOfQuestion () =>{
 	   return array
 }
 */
-const listOFQuestions = (array, currentUser, dispatch) => {
+const listOFQuestions = (array, currentUser, dispatch, answerStatus) => {
 	const listOFQuestions = [];
 	array.forEach((row) => {
 		listOFQuestions.push(
@@ -16,6 +16,7 @@ const listOFQuestions = (array, currentUser, dispatch) => {
 				key={row.id}
 				currentUser={currentUser}
 				dispatch={dispatch}
+				status={answerStatus}
 			/>
 		);
 	});
@@ -29,8 +30,8 @@ renderTabPane() =>{
 *  }
 * */
 const renderTabPane = (panesData, currentUser, dispatch) => {
-	const answered = listOFQuestions(panesData.answeredQuestions, currentUser, dispatch);
-	const unanswered = listOFQuestions(panesData.unansweredQuestions, currentUser, dispatch);
+	const answered = listOFQuestions(panesData.answeredQuestions, currentUser, dispatch, "answered");
+	const unanswered = listOFQuestions(panesData.unansweredQuestions, currentUser, dispatch, "unanswered");
 	return [
 		{
 			menuItem: 'Unanswered Questions', key: "unanswered", render: () => <Tab.Pane attached={false}>

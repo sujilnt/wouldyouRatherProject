@@ -24,7 +24,7 @@ const LeaderBoard = (props) => {
 			<div>
 				<NavBarComponent currentUser={props.state.currentUser}/>
 				<div className="flexContainer" style={{margin: "0", flexDirection: "column"}}>
-					<div><h2 className="headerStyle">ScoreBoard</h2></div>
+					<div><h2 className="headerStyle" style={{"marginBottom": "20"}}>ScoreBoard</h2></div>
 					<div className="QuestionTabontainer leaderBoard" style={{flexWrap: "wrap"}}>
 						{renderScoreCard(props)}
 					</div>
