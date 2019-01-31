@@ -73,6 +73,7 @@ export const saveQuestionsAnswer = (authUser, id, value) => (dispatch) => {
 	_saveQuestionAnswer(args).then((data) => {
 		const authid = data.users[ authUser.id ];
 		dispatch(currentUser(authid));
+		dispatch(getQuestions());
 	});
 };
 

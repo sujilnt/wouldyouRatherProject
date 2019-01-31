@@ -9,7 +9,8 @@ import LoginError from "../LoginError/LoginError";
 
 class AnswerQuestions extends Component {
 	render() {
-		const {currentQuestions, currentUser, dispatch} = this.props;
+		const {currentQuestions, currentUser, dispatch, getQuestions} = this.props;
+		const updatedQuestion = getQuestions[ currentQuestions.id ];
 		if ( currentUser.id ) {
 			return (
 				<div>
@@ -17,7 +18,7 @@ class AnswerQuestions extends Component {
 					<div className="parentFlexBOx">
 						<div className="childFlexBox">
 							<QuestionCard
-								QuestionData={currentQuestions}
+								QuestionData={updatedQuestion}
 								key={currentQuestions.id}
 								currentUser={currentUser}
 								dispatch={dispatch}

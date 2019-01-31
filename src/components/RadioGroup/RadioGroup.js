@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {Button, Checkbox} from 'semantic-ui-react';
 import {currentQuestionAction, saveQuestionsAnswer} from "../../store/action";
-
+import "../CardQuestion/CardQuestion.css";
 class RadioGroup extends Component {
 	state = {
 		defaultValue: "",
@@ -11,12 +11,12 @@ class RadioGroup extends Component {
 	
 	handleChange = (e, {value}) => {
 		const {QuestionsData, dispatch, currentUser} = this.props;
+		dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
 		this.setState(() => {
 			return {
 				defaultValue: value
 			};
 		});
-		dispatch(saveQuestionsAnswer(currentUser, QuestionsData, value));
 	};
 	
 	componentDidMount() {
@@ -48,6 +48,7 @@ class RadioGroup extends Component {
 	};
 	render() {
 		const {QuestionsData} = this.props;
+		let disabledstyles = this.state.disabled ? "pointerNone" : "pointerFill";
 		const viewPollLink = `/question/${QuestionsData.id}/results`;
 		return (
 			<div>
@@ -84,10 +85,10 @@ class RadioGroup extends Component {
 						/>
 					</section>
 					<section className="flexContainer" style={{justifyContent: "flex-End"}}>
-						<Link to={viewPollLink}>
+						<Link to={viewPollLink} className={disabledstyles}>
 							<Button color='red' className="fontWeight" onClick={this.clickedElement}
 							        disabled={this.state.disabled}>
-								Results
+								Poll Results
 							</Button>
 						</Link>
 					</section>

@@ -1,0 +1,9 @@
+.pointerNone {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.pointerFill {
+    pointer-events: all;
+    cursor: pointer;
+}

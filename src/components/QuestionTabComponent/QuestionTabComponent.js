@@ -1,6 +1,5 @@
 import React from "react";
 import  {Tab}  from 'semantic-ui-react';
-import QuestionCard from "../../QuestionCard/QuestionCard";
 import CardQuestion from "../CardQuestion/CardQuestion";
 /*
 listOfQuestion () =>{
@@ -11,7 +10,6 @@ listOfQuestion () =>{
 const listOFQuestions = (array, currentUser, dispatch) => {
 	const listOFQuestions = [];
 	array.forEach((row) => {
-		console.log(row, currentUser, "seeeeeee");
 		listOFQuestions.push(
 			<CardQuestion
 				QuestionData={row}
@@ -81,7 +79,7 @@ const panesData = (getQuestions, user, getUsers) => {
 *  passing QuestionCard component inside Tab Pane .
 */
 const QuestionTabComponent = (props) => {
-	//console.log('%c QuestionTabComponent ', 'background: steelblue ; color: white');
+	console.log('%c QuestionTabComponent ', 'background: steelblue ; color: white', props);
 	const {getQuestions, currentUser, dispatch, getUsers} = props;
 	if ( getQuestions.length ) {
 		const getPanesData = panesData(getQuestions, currentUser, getUsers);

@@ -10,8 +10,7 @@ class CardQuestion extends Component {
 		return option ? option : "default";
 	};
 	ClickedElement = (props) => {
-		props.dispatch(currentQuestionAction(props));
-		console.log(props.dispatch(currentQuestionAction(props.QuestionData)));
+		props.dispatch(currentQuestionAction(props.QuestionData));
 	};
 	
 	render() {
