@@ -80,7 +80,7 @@ const panesData = (getQuestions, user, getUsers) => {
 *  passing QuestionCard component inside Tab Pane .
 */
 const QuestionTabComponent = (props) => {
-	console.log('%c QuestionTabComponent ', 'background: steelblue ; color: white', props);
+	//console.log('%c QuestionTabComponent ', 'background: steelblue ; color: white', props);
 	const {getQuestions, currentUser, dispatch, getUsers} = props;
 	if ( getQuestions.length ) {
 		const getPanesData = panesData(getQuestions, currentUser, getUsers);

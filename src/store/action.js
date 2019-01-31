@@ -28,7 +28,6 @@ const createDispatcher = (dispatch,action)=>{
 
 const localStorageState = (dispatch,type, action)=>{
 	const newAction = {...action, payload: action.payload[type]};
-	console.log("newAction",newAction);
 	return createDispatcher(dispatch,newAction)
 };
 

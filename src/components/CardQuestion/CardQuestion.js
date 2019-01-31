@@ -17,7 +17,6 @@ class CardQuestion extends Component {
 	render() {
 		//console.log('%c QuestionCard ', 'background: blue; color: white');
 		const {QuestionData, status} = this.props;
-		console.log(this.props);
 		const imageAvatar = QuestionData.avatarURL ? QuestionData.avatarURL : src;
 		const viewPollLink = `/question/${QuestionData.id}`;
 		const resultLink = `/question/${QuestionData.id}/results`;

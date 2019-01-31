@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
-import {Button} from "semantic-ui-react";
 import QuestionCard from "../../QuestionCard/QuestionCard";
 import {NavBarComponent} from "../NavBar/NavBarContainer";
 import "./AnswerQuestions.css";

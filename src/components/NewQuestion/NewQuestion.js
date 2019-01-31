@@ -21,7 +21,6 @@ class NewQuestion extends Component {
 		this.props.action.dispatch(saveQuestions(question));
 	};
 	handleChange = (e, state) => {
-		console.log(e.target.value, state);
 		const value = e.target.value;
 		this.setState(() => {
 			return {
