@@ -23,9 +23,11 @@ class QuestionCard extends Component {
 	};
 	render() {
 		//console.log('%c QuestionCard ', 'background: blue; color: white');
-		console.log("QuestionCard", this.props);
-		const {QuestionData, currentUser, dispatch} = this.props;
-		const imageAvatar = QuestionData.avatarURL ? QuestionData.avatarURL : src;
+		const {QuestionData, currentUser, dispatch, getUsers} = this.props;
+		
+		const avatar = getUsers[ QuestionData.author ].avatarURL;
+		
+		const imageAvatar = avatar ? avatar : src;
 		return (
 			<div className="questionContainer">
 				<div className="QuestionCardImage">
