@@ -19,8 +19,8 @@ class Results extends Component {
 			const optionOneVotes = currentQuestions.optionOne.votes.length;
 			const optionTwoVotes = currentQuestions.optionTwo.votes.length;
 			const totalUsers = Object.keys(getUsers).length;
-			const percentOptionOne = calculatePercentage(optionOneVotes, totalUsers);
-			const percentOptionTwo = calculatePercentage(optionTwoVotes, totalUsers);
+			const percentOptionOne = calculatePercentage(optionOneVotes, optionOneVotes+optionTwoVotes);
+			const percentOptionTwo = calculatePercentage(optionTwoVotes, optionOneVotes+optionTwoVotes);
 			
 			return (
 				<div className="resultContainer">
