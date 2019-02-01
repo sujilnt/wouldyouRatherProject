@@ -13,10 +13,11 @@ class NewQuestion extends Component {
 	};
 	handleClick = (e) => {
 		const {optionOne, optionTwo} = this.state;
+		const {currentUser} = this.props.state;
 		const question = {
 			optionOneText: optionOne,
 			optionTwoText: optionTwo,
-			author: e.id
+			author: currentUser.id
 		};
 		this.props.action.dispatch(saveQuestions(question));
 	};
@@ -50,11 +51,12 @@ class NewQuestion extends Component {
 									       className="flexChild"
 									/>
 									<Link to='/home'
-									      onClick={(e) => this.handleClick(this.props.state.currentUser)}
+									      onClick={this.handleClick}
+									      delay={5000}
 									>
 										<Button content='Submit Question' className="flexChild"
-										        delay={5000}
-										        style={{background: "#2f54eb", color: "white"}}/></Link>
+										        style={{background: "#2f54eb", color: "white"}}/>
+									</Link>
 								</div>
 							</Container>
 						</div>

@@ -11,7 +11,8 @@ const calculatePercentage = (votes, user) => Math.floor((votes / user) * 100);
 class Results extends Component {
 	render() {
 		//console.log("props", this.props, this.props.QuestionData);
-		const {currentUser, currentQuestions, getUsers} = this.props;
+		const {currentQuestions} = this.props;
+		const {currentUser, getUsers} = this.props.state;
 		if ( currentUser.id ) {
 			const checkPic = getUsers[ currentQuestions.author ].avatarURL;
 			const avatar = checkPic ? checkPic : src;
