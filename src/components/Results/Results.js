@@ -87,7 +87,6 @@ const mapStateToProps = state => {
 			getUsers: state.getUsers,
 			currentQuestions: state.currentQuestions,
 			getQuestions: state.getQuestions,
-			getUsers: state.getUsers,
 		}
 		
 	};
