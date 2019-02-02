@@ -1,6 +1,6 @@
-import LoginPage from "./LoginPage";
 import {connect} from "react-redux";
-import {currentUser, getQuestions, getUsers} from "../../store/action"
+import {currentUser} from "../../store/action"
+import LoginPage from "./LoginPage";
 
 const mapStateToProps = state => {
 	return{
@@ -9,8 +9,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps= dispatch =>({
 	async getcurrentUser(userName) {
-		const data = await dispatch(currentUser(userName));
-		return data;
+		return await dispatch(currentUser(userName));
    }
 });
 const LoginPageDataContainer= connect(mapStateToProps,mapDispatchToProps)(LoginPage);

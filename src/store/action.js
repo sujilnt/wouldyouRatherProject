@@ -1,10 +1,5 @@
 import C from "../constants";
-import {
-	_getUsers,
-	_getQuestions,
-	_saveQuestionAnswer,
-	_saveQuestion
-} from "../data";
+import {_getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer} from "../data";
 
 /*
 *  createDispatcher =>
@@ -72,6 +67,7 @@ export const saveQuestionsAnswer = (authUser, id, value) => (dispatch) => {
 	_saveQuestionAnswer(args).then((data) => {
 		const authid = data.users[ authUser.id ];
 		dispatch(currentUser(authid));
+		dispatch(getUsers(authid));
 		dispatch(getQuestions());
 	});
 };
