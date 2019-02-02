@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import {connect} from "react-redux";
 import {Card, Message, Progress, Divider} from "semantic-ui-react";
 import src from "../../images/white-image.png";
@@ -8,17 +8,17 @@ import "./Results.css";
 
 const calculatePercentage = (votes, user) => Math.floor((votes / user) * 100);
 
-class Results extends Component {
+class Results extends PureComponent {
+	
 	render() {
-		//console.log("props", this.props, this.props.QuestionData);
-		const {currentQuestions} = this.props;
-		const {currentUser, getUsers} = this.props.state;
+		console.log("props", this.props, this.props.state);
+		const {currentUser, getUsers, currentQuestions, getQuestions} = this.props.state;
 		if ( currentUser.id ) {
 			const checkPic = getUsers[ currentQuestions.author ].avatarURL;
 			const avatar = checkPic ? checkPic : src;
 			const header = `Added by ${currentQuestions.author}`;
-			const optionOneVotes = currentQuestions.optionOne.votes.length;
-			const optionTwoVotes = currentQuestions.optionTwo.votes.length;
+			const optionOneVotes = getQuestions[ currentQuestions.id ].optionOne.votes.length;
+			const optionTwoVotes = getQuestions[ currentQuestions.id ].optionTwo.votes.length;
 			const totalUsers = Object.keys(getUsers).length;
 			const percentOptionOne = calculatePercentage(optionOneVotes, optionOneVotes+optionTwoVotes);
 			const percentOptionTwo = calculatePercentage(optionTwoVotes, optionOneVotes+optionTwoVotes);
@@ -83,10 +83,14 @@ class Results extends Component {
 
 const mapStateToProps = state => {
 	return {
-		currentUser: state.currentUser,
-		currentQuestions: state.currentQuestions,
-		getUsers: state.getUsers,
-		getQuestions: state.getQuestions,
+		state: {
+			currentUser: state.currentUser,
+			getUsers: state.getUsers,
+			currentQuestions: state.currentQuestions,
+			getQuestions: state.getQuestions,
+			getUsers: state.getUsers,
+		}
+		
 	};
 };
 export default connect(mapStateToProps)(Results);

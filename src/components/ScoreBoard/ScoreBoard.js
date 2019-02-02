@@ -21,7 +21,7 @@ const ScoreBoard = (props) => {
 			</div>
 			<div className="QuestionsContent">
 				<h3>{props.users.name}</h3>
-				<div className="fonting">Question Answered : {questions}</div>
+				<div className="fonting">Created Questions : {questions}</div>
 				<div className="fonting">Answered Questions : {answers}</div>
 				<div className="fonting moveRight">total : {answers + questions}</div>
 			</div>

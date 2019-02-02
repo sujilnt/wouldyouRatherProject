@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import AnswerQuestions from "./components/AnswerQuestions/AnswerQuestions";
 import LeaderBoard from "./components/LeaderBoard/LeaderBoard";
-import LoginPage from "./components/LoginPage/LoginPageDataContainer";
+import LoginPageContainer from "./components/LoginPage/LoginPageDataContainer";
 import HomePageContainer from "./components/HomePage/HomePageContainer";
 import NewQuestion from "./components/NewQuestion/NewQuestion";
 import PageError from './components/PageError/PageError';
@@ -19,7 +19,7 @@ class RouterComponent extends PureComponent {
   		<div>
 		    <HashRouter>
 			    <Switch>
-				    <Route exact path = "/" component={LoginPage}/>
+				    <Route exact path="/" render={() => <LoginPageContainer {...this.props}/>}/>
 				    <Route exact path="/home" component={HomePageContainer}/>
 				    <Route exact path="/add"
 				           {...this.props}
@@ -28,7 +28,6 @@ class RouterComponent extends PureComponent {
 				           }
 				    />
 				    <Route exact path="/LeaderBoard"
-				           {...this.props}
 				           render={
 					           () => <LeaderBoard {...this.props} />
 				           }
@@ -44,7 +43,7 @@ class RouterComponent extends PureComponent {
 					    exact
 					    path={"/question/:id/results"}
 					    render={
-						    () => <div><Results {...this.props}/></div>
+						    (props) => <Results {...this.props} />
 					    }
 				    />
 				    <Route
