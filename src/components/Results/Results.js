@@ -1,9 +1,9 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {Card, Message, Progress, Divider} from "semantic-ui-react";
+import {Card, Divider, Message, Progress} from "semantic-ui-react";
 import src from "../../images/white-image.png";
-import {NavBarComponent} from "../NavBar/NavBarContainer";
 import LoginError from "../LoginError/LoginError";
+import {NavBarComponent} from "../NavBar/NavBarContainer";
 import "./Results.css";
 
 const calculatePercentage = (votes, user) => Math.floor((votes / user) * 100);
@@ -11,7 +11,6 @@ const calculatePercentage = (votes, user) => Math.floor((votes / user) * 100);
 class Results extends PureComponent {
 	
 	render() {
-		console.log("props", this.props, this.props.state);
 		const {currentUser, getUsers, currentQuestions, getQuestions} = this.props.state;
 		if ( currentUser.id ) {
 			const checkPic = getUsers[ currentQuestions.author ].avatarURL;

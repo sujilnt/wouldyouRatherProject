@@ -5,8 +5,15 @@ import ScoreBoard from "../ScoreBoard/ScoreBoard";
 import "./LeaderBoard.css";
 
 const renderScoreCard = (props) => {
-	const obj = props.state.getUsers;
-	const users = Object.keys(obj);
+	const {getUsers} = props.state;
+	const obj = getUsers;
+	const users = Object.keys(obj).sort((a, b) => {
+		const getA = getUsers[ a ];
+		const getB = getUsers[ b ];
+		const totalAnsweresOfA = Object.keys(getA.answers).length + getA.questions.length;
+		const totalAnsweresOfB = Object.keys(getB.answers).length + getB.questions.length;
+		return totalAnsweresOfB - totalAnsweresOfA;
+	});
 	const renderScores = [];
 	users.forEach((data) => {
 		renderScores.push(
