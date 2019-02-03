@@ -1,54 +1,57 @@
 import React, {PureComponent} from "react";
-import {
-	HashRouter,
-	Switch,
-	Route
-} from "react-router-dom";
+import {HashRouter, Route, Switch} from "react-router-dom";
 import AnswerQuestions from "./components/AnswerQuestions/AnswerQuestions";
+import HomePageContainer from "./components/HomePage/HomePageContainer";
 import LeaderBoard from "./components/LeaderBoard/LeaderBoard";
 import LoginPageContainer from "./components/LoginPage/LoginPageDataContainer";
-import HomePageContainer from "./components/HomePage/HomePageContainer";
 import NewQuestion from "./components/NewQuestion/NewQuestion";
-import PageError from './components/PageError/PageError';
+import Page404 from './components/Page404/Page404';
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Results from "./components/Results/Results";
 
 class RouterComponent extends PureComponent {
 	render() {
-		//console.log('%c RouterComponent ', 'background: #222; color: #bada55', this.props);
+		console.log('%c RouterComponent ', 'background: #222; color: #bada55', this.props);
   	return(
   		<div>
 		    <HashRouter>
 			    <Switch>
-				    <Route exact path="/" render={() => <LoginPageContainer {...this.props}/>}/>
-				    <Route exact path="/home" component={HomePageContainer}/>
-				    <Route exact path="/add"
-				           {...this.props}
-				           render={
-					           () => <NewQuestion {...this.props} />
-				           }
+				    <Route exact path="/" render={(props) => {
+					    console.log("props login", props);
+					    return (<LoginPageContainer {...this.props}/>);
+				    }}/>
+				    <PrivateRoute
+					    exact
+					    path="/home"
+					    component={HomePageContainer}
 				    />
-				    <Route exact path="/LeaderBoard"
-				           render={
-					           () => <LeaderBoard {...this.props} />
-				           }
+				    <PrivateRoute
+					    exact
+					    path={"/add"}
+					    routeState={this.props}
+					    component={NewQuestion}
 				    />
-				    <Route
+				    <PrivateRoute
+					    exact
+					    path={"/LeaderBoard"}
+					    routeState={this.props}
+					    component={LeaderBoard}
+				    />
+				    <PrivateRoute
 					    exact
 					    path={"/question/:id"}
-					    render={
-						    () => <AnswerQuestions {...this.props} />
-					    }
+					    routeState={this.props}
+					    component={AnswerQuestions}
 				    />
-				    <Route
+				    <PrivateRoute
 					    exact
 					    path={"/question/:id/results"}
-					    render={
-						    (props) => <Results {...this.props} />
-					    }
+					    routeState={this.props}
+					    component={Results}
 				    />
 				    <Route
-					    path={"/*"}
-					    component={PageError}
+					    path="/*"
+					    component={Page404}
 				    />
 			    </Switch>
 		    </HashRouter>

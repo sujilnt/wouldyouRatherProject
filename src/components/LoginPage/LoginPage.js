@@ -1,10 +1,8 @@
 import React, {PureComponent} from "react";
-import Select,{ components } from 'react-select';
 import Avatar from 'react-avatar';
+import {Link,} from "react-router-dom";
+import Select, {components} from 'react-select';
 import "./LoginPage.css";
-import {
-	Link,
-} from "react-router-dom";
 
 const Option = props => {
 	const { innerProps, innerRef } = props;
@@ -50,8 +48,10 @@ class LoginPage extends PureComponent {
 	};
 	render(){
 		//console.log('%c LoginPage ', 'background: green ; color: #bada55');
+		console.log(this.props, "data......");
 		const {getUsers}=this.props;
 		const options=this.convertPropItems(getUsers);
+		const BestOptions = (e) => options(e, this.props);
 		return (
 			<div className="loginPageSelectcontainer">
 				<h3>Would You Rather ..? </h3>
