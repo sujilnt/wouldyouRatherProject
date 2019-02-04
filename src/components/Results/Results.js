@@ -2,8 +2,8 @@ import React, {PureComponent} from "react";
 import {connect} from "react-redux";
 import {Card, Divider, Message, Progress} from "semantic-ui-react";
 import src from "../../images/white-image.png";
-import LoginError from "../LoginError/LoginError";
 import {NavBarComponent} from "../NavBar/NavBarContainer";
+import Page404 from "../Page404/Page404";
 import "./Results.css";
 
 const calculatePercentage = (votes, user) => Math.floor((votes / user) * 100);
@@ -11,13 +11,18 @@ const calculatePercentage = (votes, user) => Math.floor((votes / user) * 100);
 class Results extends PureComponent {
 	
 	render() {
+		console.log("result props", this.props);
 		const {currentUser, getUsers, currentQuestions, getQuestions} = this.props.state;
-		if ( currentUser.id ) {
-			const checkPic = getUsers[ currentQuestions.author ].avatarURL;
+		const locationId = this.props.location.pathname.split("/")[ 2 ];
+		const QuestionId = Object.keys(getQuestions).filter((val) => val === locationId)[ 0 ];
+		if ( currentUser.id && QuestionId ) {
+			const checkcurrentQuestions = currentQuestions.author ? currentQuestions : getQuestions[ QuestionId[ 0 ] ];
+			const checkPic = getUsers[ checkcurrentQuestions.author ].avatarURL;
 			const avatar = checkPic ? checkPic : src;
-			const header = `Added by ${currentQuestions.author}`;
-			const optionOneVotes = getQuestions[ currentQuestions.id ].optionOne.votes.length;
-			const optionTwoVotes = getQuestions[ currentQuestions.id ].optionTwo.votes.length;
+			const header = `Added by ${checkcurrentQuestions.author}`;
+			const optionOneVotes = getQuestions[ checkcurrentQuestions.id ].optionOne.votes.length;
+			const optionTwoVotes = getQuestions[ checkcurrentQuestions.id ].optionTwo.votes.length;
+			console.log("locationId", getUsers[ currentQuestions.author ], optionTwoVotes, getQuestions[ QuestionId[ 0 ] ], checkcurrentQuestions);
 			const totalUsers = Object.keys(getUsers).length;
 			const percentOptionOne = calculatePercentage(optionOneVotes, optionOneVotes+optionTwoVotes);
 			const percentOptionTwo = calculatePercentage(optionTwoVotes, optionOneVotes+optionTwoVotes);
@@ -41,7 +46,7 @@ class Results extends PureComponent {
 									<Message>
 										<div>
 											<h4 className="h4">
-												Would you rather {currentQuestions.optionOne.text}
+												Would you rather {checkcurrentQuestions.optionOne.text}
 											</h4>
 											<Progress percent={percentOptionOne} size='medium' progress>
 											<span>
@@ -54,7 +59,7 @@ class Results extends PureComponent {
 									<Message>
 										<div>
 											<h4 className="h4">
-												Would you rather {currentQuestions.optionTwo.text}
+												Would you rather {checkcurrentQuestions.optionTwo.text}
 											</h4>
 											<Progress percent={percentOptionTwo} size='medium' progress>
 											<span>
@@ -72,7 +77,10 @@ class Results extends PureComponent {
 		} else {
 			return (
 				<div>
-					<LoginError url={"/"}/>
+					<NavBarComponent currentUser={currentUser}/>
+					<Page404
+						text={"result of the particular question not found "}
+					/>
 				</div>
 			)
 		}
