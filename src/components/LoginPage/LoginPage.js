@@ -5,11 +5,11 @@ import Select, {components} from 'react-select';
 import "./LoginPage.css";
 
 const Option = props => {
-	const { innerProps, innerRef } = props;
-	//console.log("props...",props);
+	const {innerProps, innerRef, selectProps} = props;
+	const {from} = selectProps.location.state ? selectProps.location.state : {from: "/home"};
 	return (
 		<components.Option {...props}>
-			<Link to="/home">
+			<Link to={from}>
 			<div className="avatarContainer" ref={innerRef} {...innerProps} >
 				<Avatar name={props.label} size="40" round={"4px"} />
 				<span style={{padding: "0 20px"}}>{props.label}</span>
@@ -50,7 +50,7 @@ class LoginPage extends PureComponent {
 	render(){
 		//console.log('%c LoginPage ', 'background: green ; color: #bada55');
 		console.log(this.props, "data......");
-		const {getUsers}=this.props;
+		const {getUsers, location} = this.props;
 		const options=this.convertPropItems(getUsers);
 		const BestOptions = (e) => options(e, this.props);
 		return (
@@ -68,6 +68,7 @@ class LoginPage extends PureComponent {
 							options={options}
 							className="react-select-LoginPage"
 							onChange={this.handleChange}
+							location={location}
 						/>
 						</div>
 					</div>

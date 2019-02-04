@@ -36,7 +36,7 @@ class RouterComponent extends PureComponent {
 							path="/"
 							render={(props) => {
 								const {authUser} = this.state;
-								const dataProp = {...this.props, updateauth};
+								const dataProp = {...this.props, ...props, updateauth};
 								return (
 									<LoginPageContainer {...dataProp}/>
 								);
