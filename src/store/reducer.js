@@ -2,8 +2,8 @@
 * List of reudcers
 * 1)Get Users
 * */
+import {combineReducers} from "redux";
 import C from "../constants";
-import{combineReducers} from "redux";
 
 // A Reducer for getting all the users
 export const getUsers = (state={},action)=> (action.type === C.GET_USERS) ?
@@ -35,7 +35,9 @@ export const saveQuestions = (state = {}, action) => (action.type === C.SAVE_QUE
 	action.payload :
 	state;
 
-
+const authUser = (state = false, action) => (action.type === C.AUTH_USER) ?
+	action.payload :
+	state;
 // Combining all the reducers using combineReducers
 export default combineReducers({
 	getUsers,

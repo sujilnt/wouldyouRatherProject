@@ -44,7 +44,8 @@ class LoginPage extends PureComponent {
 		return newKeysValue;
 	};
 	handleChange=(e)=>{
-		this.props.getcurrentUser(e);
+		this.props.action.currentUser(e);
+		this.props.updateauth();
 	};
 	render(){
 		//console.log('%c LoginPage ', 'background: green ; color: #bada55');

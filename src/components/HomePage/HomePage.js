@@ -1,6 +1,6 @@
 import React from "react";
+import {Redirect} from "react-router-dom";
 import {NavBarComponent} from "../NavBar/NavBarContainer"
-import LoginError from "../LoginError/LoginError";
 import QuestionTabContainer from "../QuestionTabs/QuestionTabContainer";
 
 const HomePage= (props)=>{
@@ -13,8 +13,7 @@ const HomePage= (props)=>{
 						<NavBarComponent currentUser={props.currentUser}  />
 						<div className="flexContainer">< QuestionTabContainer {...props}/></div>
 					</div>:
-				<div className="fullHeight"><LoginError url={"/"}/></div>
-				
+					<Redirect to={"/"}/>
 			}
 		</div>
 	);

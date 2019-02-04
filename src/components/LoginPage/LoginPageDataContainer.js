@@ -1,5 +1,4 @@
 import {connect} from "react-redux";
-import {currentUser} from "../../store/action"
 import LoginPage from "./LoginPage";
 
 const mapStateToProps = state => {
@@ -7,11 +6,7 @@ const mapStateToProps = state => {
 		...state
 	};
 };
-const mapDispatchToProps= dispatch =>({
-	async getcurrentUser(userName) {
-		return await dispatch(currentUser(userName));
-   }
-});
-const LoginPageDataContainer= connect(mapStateToProps,mapDispatchToProps)(LoginPage);
+
+const LoginPageDataContainer = connect(mapStateToProps)(LoginPage);
 
 export default LoginPageDataContainer;

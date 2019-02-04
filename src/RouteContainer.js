@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import {currentUser, getUsers, getQuestions} from "./store/action"
 import RouterComponent from "./RouterComponent";
+import {authicateUserAction, currentUser, getQuestions, getUsers} from "./store/action"
 
 const mapStateToProps = (state) => {
 	const obj = {
