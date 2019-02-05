@@ -49,7 +49,6 @@ class LoginPage extends PureComponent {
 	};
 	render(){
 		//console.log('%c LoginPage ', 'background: green ; color: #bada55');
-		console.log(this.props, "data......");
 		const {getUsers, location} = this.props;
 		const options=this.convertPropItems(getUsers);
 		const BestOptions = (e) => options(e, this.props);

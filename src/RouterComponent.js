@@ -26,7 +26,7 @@ class RouterComponent extends PureComponent {
 	render() {
 		const isAuthenticated = this.state.authUser;
 		const updateauth = this.updateauth;
-		console.log('%c RouterComponent ', 'background: #222; color: #bada55', this.props, this.state);
+		//console.log('%c RouterComponent ', 'background: #222; color: #bada55', this.props, this.state);
 		return (
 			<div>
 				<HashRouter>

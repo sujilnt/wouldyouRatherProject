@@ -11,18 +11,18 @@ const calculatePercentage = (votes, user) => Math.floor((votes / user) * 100);
 class Results extends PureComponent {
 	
 	render() {
-		console.log("result props", this.props);
+		//console.log("result props", this.props);
 		const {currentUser, getUsers, currentQuestions, getQuestions} = this.props.state;
 		const locationId = this.props.location.pathname.split("/")[ 2 ];
 		const QuestionId = Object.keys(getQuestions).filter((val) => val === locationId)[ 0 ];
 		if ( currentUser.id && QuestionId ) {
-			const checkcurrentQuestions = currentQuestions.author ? currentQuestions : getQuestions[ QuestionId[ 0 ] ];
+			const checkcurrentQuestions = currentQuestions.author ? currentQuestions : getQuestions[ QuestionId ];
 			const checkPic = getUsers[ checkcurrentQuestions.author ].avatarURL;
 			const avatar = checkPic ? checkPic : src;
 			const header = `Added by ${checkcurrentQuestions.author}`;
 			const optionOneVotes = getQuestions[ checkcurrentQuestions.id ].optionOne.votes.length;
 			const optionTwoVotes = getQuestions[ checkcurrentQuestions.id ].optionTwo.votes.length;
-			console.log("locationId", getUsers[ currentQuestions.author ], optionTwoVotes, getQuestions[ QuestionId[ 0 ] ], checkcurrentQuestions);
+			//console.log("locationId", getUsers[ currentQuestions.author ], optionTwoVotes, getQuestions[ QuestionId[ 0 ] ], checkcurrentQuestions);
 			const totalUsers = Object.keys(getUsers).length;
 			const percentOptionOne = calculatePercentage(optionOneVotes, optionOneVotes+optionTwoVotes);
 			const percentOptionTwo = calculatePercentage(optionTwoVotes, optionOneVotes+optionTwoVotes);

@@ -2,14 +2,17 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import QuestionCard from "../../QuestionCard/QuestionCard";
 import {NavBarComponent} from "../NavBar/NavBarContainer";
+import Page404 from "../Page404/Page404";
 import "./AnswerQuestions.css";
-import LoginError from "../LoginError/LoginError";
 
 class AnswerQuestions extends Component {
 	render() {
 		const {currentQuestions, currentUser, dispatch, getQuestions, getUsers} = this.props;
-		const updatedQuestion = getQuestions[ currentQuestions.id ];
-		if ( currentUser.id ) {
+		const locationId = this.props.location.pathname.split("/")[ 2 ];
+		const QuestionId = Object.keys(getQuestions).filter((val) => val === locationId)[ 0 ];
+		const checkcurrentQuestions = currentQuestions.author ? currentQuestions : getQuestions[ QuestionId ];
+		if ( currentUser.id && checkcurrentQuestions ) {
+			const updatedQuestion = getQuestions[ checkcurrentQuestions.id ];
 			return (
 				<div>
 					<NavBarComponent currentUser={this.props.currentUser}/>
@@ -17,7 +20,7 @@ class AnswerQuestions extends Component {
 						<div className="childFlexBox">
 							<QuestionCard
 								QuestionData={updatedQuestion}
-								key={currentQuestions.id}
+								key={checkcurrentQuestions.id}
 								currentUser={currentUser}
 								dispatch={dispatch}
 								getUsers={getUsers}
@@ -27,7 +30,12 @@ class AnswerQuestions extends Component {
 				</div>
 			)
 		} else {
-			return (<div><LoginError url={"/"}/></div>);
+			return (
+				<div>
+					<NavBarComponent currentUser={this.props.currentUser}/>
+					<Page404 text={"question not found."}/>
+				</div>
+			);
 		}
 		
 	}
