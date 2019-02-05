@@ -51,7 +51,6 @@ class LoginPage extends PureComponent {
 		//console.log('%c LoginPage ', 'background: green ; color: #bada55');
 		const {getUsers, location} = this.props;
 		const options=this.convertPropItems(getUsers);
-		const BestOptions = (e) => options(e, this.props);
 		return (
 			<div className="loginPageSelectcontainer">
 				<h3>Would You Rather ..? </h3>

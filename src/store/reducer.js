@@ -35,9 +35,6 @@ export const saveQuestions = (state = {}, action) => (action.type === C.SAVE_QUE
 	action.payload :
 	state;
 
-const authUser = (state = false, action) => (action.type === C.AUTH_USER) ?
-	action.payload :
-	state;
 // Combining all the reducers using combineReducers
 export default combineReducers({
 	getUsers,

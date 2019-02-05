@@ -21,7 +21,7 @@ const Page404 = (props) => {
 								textTransform: "capitalize",
 								marginBottom: "13px"
 							}}>
-								<Icon name='exclamation triangle' loading/> {props.text}
+								<Icon name='exclamation triangle' loading/> {text}
 							</div>
 						</Message.Header>
 						<Button primary style={{
