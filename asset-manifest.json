@@ -1,13 +1,14 @@
 {
-  "main.css": "/wouldyouRatherProject/static/css/main.10a41bbb.chunk.css",
-  "main.js": "/wouldyouRatherProject/static/js/main.3acf39c8.chunk.js",
-  "main.js.map": "/wouldyouRatherProject/static/js/main.3acf39c8.chunk.js.map",
-  "static/js/1.dbd7f1a2.chunk.js": "/wouldyouRatherProject/static/js/1.dbd7f1a2.chunk.js",
-  "static/js/1.dbd7f1a2.chunk.js.map": "/wouldyouRatherProject/static/js/1.dbd7f1a2.chunk.js.map",
+  "main.css": "/wouldyouRatherProject/static/css/main.8bb88794.chunk.css",
+  "main.js": "/wouldyouRatherProject/static/js/main.79ffaa45.chunk.js",
+  "main.js.map": "/wouldyouRatherProject/static/js/main.79ffaa45.chunk.js.map",
+  "static/js/1.480b6f11.chunk.js": "/wouldyouRatherProject/static/js/1.480b6f11.chunk.js",
+  "static/js/1.480b6f11.chunk.js.map": "/wouldyouRatherProject/static/js/1.480b6f11.chunk.js.map",
   "runtime~main.js": "/wouldyouRatherProject/static/js/runtime~main.0d56731f.js",
   "runtime~main.js.map": "/wouldyouRatherProject/static/js/runtime~main.0d56731f.js.map",
-  "static/css/main.10a41bbb.chunk.css.map": "/wouldyouRatherProject/static/css/main.10a41bbb.chunk.css.map",
+  "static/media/e.png": "/wouldyouRatherProject/static/media/e.6f8219f5.png",
+  "static/css/main.8bb88794.chunk.css.map": "/wouldyouRatherProject/static/css/main.8bb88794.chunk.css.map",
   "index.html": "/wouldyouRatherProject/index.html",
-  "precache-manifest.4ce05df2278c14f0a006aa047a9f52ea.js": "/wouldyouRatherProject/precache-manifest.4ce05df2278c14f0a006aa047a9f52ea.js",
+  "precache-manifest.26f3a7d24afe475d1b5c8cdfc10a7346.js": "/wouldyouRatherProject/precache-manifest.26f3a7d24afe475d1b5c8cdfc10a7346.js",
   "service-worker.js": "/wouldyouRatherProject/service-worker.js"
 }
