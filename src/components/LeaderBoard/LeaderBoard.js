@@ -1,6 +1,6 @@
 import React from "react";
-import LoginError from "../LoginError/LoginError";
 import {NavBarComponent} from "../NavBar/NavBarContainer";
+import Page404 from "../Page404/Page404";
 import ScoreBoard from "../ScoreBoard/ScoreBoard";
 import "./LeaderBoard.css";
 
@@ -39,7 +39,7 @@ const LeaderBoard = (props) => {
 			</div>
 		)
 	} else {
-		return (<div><LoginError url={"/"}/></div>);
+		return (<div><Page404 text={"Url not Found"}/></div>);
 	}
 };
 export default LeaderBoard;
